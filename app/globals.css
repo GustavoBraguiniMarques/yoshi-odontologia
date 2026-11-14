@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  /* --- Marca --- */
+  --primary: #A2754A;
+  --primary-dark: #9D5E14;
+  --primary-light: #C8A888;
+
+  /* --- Fundos --- */
+  --background: #FFFFFF;
+  --surface: #FBF5EF;
+
+  /* --- Textos --- */
+  --ink: #2E1903;
+  --ink-body: #3E3E3E;
+  --ink-muted: #664E39;
+
+  /* --- Bordas & Divisórias --- */
+  --border: #B88352;
+  --border-muted: #D9D9D8;
+  --border-dark: #514030;
+
+  /* --- Apoio & Destaque --- */
+  --star: #FECE58;
+  --whatsapp: #25D366;
+
+  /* --- Gradientes & Filtros --- */
+  --gradient-button: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --gradient-hero: radial-gradient(ellipse 50% 60% at 50% 40%, var(--background) 0%, transparent 100%);
+  --filter-hero: drop-shadow(0 24px 40px color-mix(in srgb, var(--primary) 30%, transparent));
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-body: var(--ink-body);
+  --color-ink-muted: var(--ink-muted);
+  --color-border: var(--border);
+  --color-border-muted: var(--border-muted);
+  --color-border-dark: var(--border-dark);
+  --color-star: var(--star);
+  --color-whatsapp: var(--whatsapp);
+
+  --font-heading: var(--font-philosopher), serif;
+  --font-body: var(--font-poppins), sans-serif;
+  --font-nav: var(--font-lato), sans-serif;
+}
+
+@theme {
+  --shadow-card: 0 20px 48px color-mix(in srgb, var(--ink) 10%, transparent);
+  --shadow-button: 0 24px 36px -8px color-mix(in srgb, var(--primary) 50%, transparent);
+  --shadow-whatsapp: 0 10px 30px color-mix(in srgb, var(--whatsapp) 40%, transparent);
+
+  --radius-card: 24px;
+
+  --leading-titulo: 1.1;
+  --leading-subtitulo: 1.2;
+  --leading-texto: 1.6;
+}
+
+@utility secao {
+  @apply relative w-full py-15 md:py-30;
+}
+
+@utility container-secao {
+  @apply max-w-285 mx-auto px-4 md:px-6;
+}
+
+@utility titulo-hero {
+  @apply font-heading text-[44px] md:text-[64px] lg:text-[84px] leading-titulo font-bold text-ink;
+}
+
+@utility titulo-secao {
+  @apply font-heading text-[36px] md:text-[44px] lg:text-[48px] leading-titulo font-bold text-ink;
+}
+
+@utility subtitulo-card {
+  @apply font-heading text-[28px] md:text-[32px] leading-subtitulo font-bold text-ink;
+}
+
+@utility texto-secao {
+  @apply font-body text-[17px] md:text-[20px] leading-texto font-normal text-ink-body;
+}
+
+@utility texto-card {
+  @apply font-body text-[16px] md:text-[18px] leading-texto font-normal text-ink-body;
+}
+
+@utility selo-destaque {
+  @apply font-body text-[16px] md:text-[18px] leading-titulo font-medium text-primary;
+}
+
+@utility legenda-texto {
+  @apply font-body text-[15px] leading-texto font-normal text-background/70;
+}
+
+@utility card-servico {
+  @apply w-full max-w-91 h-78 bg-background rounded-card shadow-card border border-primary-light px-8 py-10 flex flex-col items-center text-center;
+}
+
+@utility card-depoimento {
+  @apply w-full max-w-91 min-h-83 bg-background rounded-card shadow-card p-8 flex flex-col items-center text-center justify-between;
+}
+
+@utility card-cta {
+  @apply w-full min-h-70 lg:min-h-80 bg-primary-light rounded-none md:rounded-card border-0 px-6 md:px-12 pt-14 pb-15 flex flex-col items-center justify-center text-center shadow-card;
+}
+
+@utility card-funcionamento {
+  @apply mt-5 p-4 rounded-xl bg-background/5 border border-border-dark/60 w-full flex items-start gap-3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink-body);
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+}
