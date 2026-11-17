@@ -11,7 +11,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/20 selection:text-ink relative">
+    <main className="min-h-screen bg-light-bg selection:bg-primary/20 selection:text-black-ink relative">
       {/* 0. Header separado das seções */}
       <Header />
 

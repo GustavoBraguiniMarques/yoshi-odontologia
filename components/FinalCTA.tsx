@@ -7,7 +7,7 @@ import { WHATSAPP_URL } from './constants';
 
 export default function FinalCTA() {
   return (
-    <section className="secao bg-background py-0! md:py-30! pr-0">
+    <section className="secao bg-light-bg py-0! md:py-30! pr-0">
       <div className="container-secao px-0 md:px-6">
         {/* Painel CTA */}
         <motion.div
@@ -18,7 +18,7 @@ export default function FinalCTA() {
           className="card-cta"
         >
           {/* H2 em branco */}
-          <h2 className="titulo-secao text-[32px] md:text-[42px] lg:text-[46px] text-background max-w-208 [text-wrap:balance]">
+          <h2 className="titulo-secao text-[32px] md:text-[42px] lg:text-[46px] text-black-ink max-w-208 [text-wrap:balance]">
             Deseja agendar a sua avaliação ou tirar alguma dúvida?
           </h2>
 

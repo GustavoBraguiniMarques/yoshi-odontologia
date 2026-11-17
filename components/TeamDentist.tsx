@@ -30,7 +30,7 @@ export default function TeamDentist() {
   return (
     <section
       id="dentist"
-      className="secao bg-background overflow-hidden"
+      className="secao bg-light-bg overflow-hidden"
     >
       <div className="container-secao flex flex-col items-center">
         {/* Título e parágrafo centralizados */}
@@ -41,10 +41,10 @@ export default function TeamDentist() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-210 text-center flex flex-col items-center"
         >
-          <h2 className="titulo-secao [text-wrap:balance]">
+          <h2 className="titulo-secao text-black-ink [text-wrap:balance]">
             Nossa Equipe
           </h2>
-          <p className="mt-5 texto-secao md:text-[19px]">
+          <p className="mt-5 texto-secao text-soft-black-ink md:text-[19px]">
             Corpo clínico dedicado à excelência odontológica em Maringá, unindo conhecimento cirúrgico e acolhimento humano. Nossa missão é oferecer atendimento ágil e resolutivo em qualquer horário do dia ou da noite, com conforto absoluto e tecnologia.
           </p>
         </motion.div>
@@ -62,10 +62,10 @@ export default function TeamDentist() {
                 delay: index * 0.15,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="flex flex-col items-center text-center w-full max-w-95"
+              className="flex flex-col items-center text-center w-full max-w-100"
             >
               {/* Imagem do profissional */}
-              <div className="relative w-full aspect-[4/5] rounded-card overflow-hidden shadow-card border-4 border-primary-light bg-background">
+              <div className="relative w-full aspect-[4/5] rounded-card overflow-hidden shadow-card border-6 border-support-color bg-light-bg">
                 <Image
                   src={doctor.image}
                   alt={doctor.alt}

@@ -2,46 +2,35 @@
 
 :root {
   /* --- Marca --- */
-  --primary: #A2754A;
-  --primary-dark: #9D5E14;
-  --primary-light: #C8A888;
-
-  /* --- Fundos --- */
-  --background: #FFFFFF;
-  --surface: #FBF5EF;
+  --primary: #7D6132;
+  --support-color: #D7C9AA;
+  --light-bg: #FBFFF1;
+  --dark-bg: #20303D;
 
   /* --- Textos --- */
-  --ink: #2E1903;
-  --ink-body: #3E3E3E;
-  --ink-muted: #664E39;
-
-  /* --- Bordas & Divisórias --- */
-  --border: #B88352;
-  --border-muted: #D9D9D8;
-  --border-dark: #514030;
+  --black-ink: #2E1903;
+  --soft-black-ink: #3E3E3E;
+  --white-ink: #FFFFFF;
+  --soft-white-ink: #D2D6D8;
 
   /* --- Apoio & Destaque --- */
   --star: #FECE58;
   --whatsapp: #25D366;
 
   /* --- Gradientes & Filtros --- */
-  --gradient-button: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
-  --gradient-hero: radial-gradient(ellipse 50% 60% at 50% 40%, var(--background) 0%, transparent 100%);
+  --gradient-hero: radial-gradient(ellipse 50% 60% at 50% 40%, var(--light-bg) 0%, transparent 100%);
   --filter-hero: drop-shadow(0 24px 40px color-mix(in srgb, var(--primary) 30%, transparent));
 }
 
 @theme inline {
   --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-light: var(--primary-light);
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-ink: var(--ink);
-  --color-ink-body: var(--ink-body);
-  --color-ink-muted: var(--ink-muted);
-  --color-border: var(--border);
-  --color-border-muted: var(--border-muted);
-  --color-border-dark: var(--border-dark);
+  --color-support-color: var(--support-color);
+  --color-light-bg: var(--light-bg);
+  --color-dark-bg: var(--dark-bg);
+  --color-black-ink: var(--black-ink);
+  --color-soft-black-ink: var(--soft-black-ink);
+  --color-white-ink: var(--white-ink);
+  --color-soft-white-ink: var(--soft-white-ink);
   --color-star: var(--star);
   --color-whatsapp: var(--whatsapp);
 
@@ -51,7 +40,7 @@
 }
 
 @theme {
-  --shadow-card: 0 20px 48px color-mix(in srgb, var(--ink) 10%, transparent);
+  --shadow-card: 0 20px 48px color-mix(in srgb, var(--black-ink) 10%, transparent);
   --shadow-button: 0 24px 36px -8px color-mix(in srgb, var(--primary) 50%, transparent);
   --shadow-whatsapp: 0 10px 30px color-mix(in srgb, var(--whatsapp) 40%, transparent);
 
@@ -71,56 +60,58 @@
 }
 
 @utility titulo-hero {
-  @apply font-heading text-[44px] md:text-[64px] lg:text-[84px] leading-titulo font-bold text-ink;
+  @apply font-heading text-[44px] md:text-[64px] lg:text-[84px] leading-titulo font-bold text-white-ink;
 }
 
 @utility titulo-secao {
-  @apply font-heading text-[36px] md:text-[44px] lg:text-[48px] leading-titulo font-bold text-ink;
+  @apply font-heading text-[36px] md:text-[44px] lg:text-[48px] leading-titulo font-bold;
 }
 
 @utility subtitulo-card {
-  @apply font-heading text-[28px] md:text-[32px] leading-subtitulo font-bold text-ink;
+  @apply font-heading text-[28px] md:text-[32px] leading-subtitulo font-bold;
 }
 
 @utility texto-secao {
-  @apply font-body text-[17px] md:text-[20px] leading-texto font-normal text-ink-body;
+  @apply font-body text-[17px] text-soft-white-ink md:text-[20px] leading-texto font-normal;
 }
 
 @utility texto-card {
-  @apply font-body text-[16px] md:text-[18px] leading-texto font-normal text-ink-body;
+  @apply font-body text-[16px] md:text-[18px] leading-texto font-normal text-soft-black-ink;
 }
 
 @utility selo-destaque {
-  @apply font-body text-[16px] md:text-[18px] leading-titulo font-medium text-primary;
+  @apply font-body text-[18px] md:text-[20px] leading-titulo font-medium text-primary;
 }
 
 @utility legenda-texto {
-  @apply font-body text-[15px] leading-texto font-normal text-background/70;
+  @apply font-body text-[15px] leading-texto font-normal text-soft-white-ink;
 }
 
-@utility card-servico {
-  @apply w-full max-w-91 h-78 bg-background rounded-card shadow-card border border-primary-light px-8 py-10 flex flex-col items-center text-center;
+@utility card-servico { 
+  @apply w-full max-w-91 h-78 bg-light-bg rounded-card shadow-card border-2 border-support-color px-8 py-10 flex flex-col items-center text-center;
 }
 
 @utility card-depoimento {
-  @apply w-full max-w-91 min-h-83 bg-background rounded-card shadow-card p-8 flex flex-col items-center text-center justify-between;
+  @apply w-full max-w-90 min-h-80 bg-light-bg rounded-card shadow-card px-6 py-8 flex flex-col items-center text-center justify-between;
 }
 
 @utility card-cta {
-  @apply w-full min-h-70 lg:min-h-80 bg-primary-light rounded-none md:rounded-card border-0 px-6 md:px-12 pt-14 pb-15 flex flex-col items-center justify-center text-center shadow-card;
+  @apply w-full min-h-70 lg:min-h-80 bg-support-color rounded-none md:rounded-card border-0 px-6 md:px-12 pt-14 pb-15 flex flex-col items-center justify-center text-center shadow-card;
 }
 
 @utility card-funcionamento {
-  @apply mt-5 p-4 rounded-xl bg-background/5 border border-border-dark/60 w-full flex items-start gap-3;
+  @apply mt-5 p-4 rounded-xl bg-support-color/20 border border-support-color w-full flex items-start gap-3;
 }
+
+@utility item-contato {
+  @apply flex items-center gap-3;
+}
+
 
 html {
   scroll-behavior: smooth;
 }
-
+ 
 body {
-  font-family: var(--font-body);
-  color: var(--ink-body);
-  background-color: var(--background);
   -webkit-font-smoothing: antialiased;
 }

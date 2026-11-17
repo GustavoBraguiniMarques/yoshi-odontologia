@@ -57,7 +57,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="secao bg-background"
+      className="secao bg-light-bg"
     >
       <div className="container-secao flex flex-col items-center">
         {/* H2 centralizado com animação */}
@@ -66,13 +66,13 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="titulo-secao text-center [text-wrap:balance]"
+          className="titulo-secao text-black-ink text-center [text-wrap:balance]"
         >
           Tratamentos Mais Procurados
         </motion.h2>
 
         {/* Grade 3x2 de cards */}
-        <div className="mt-12 lg:mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full justify-items-center">
+        <div className="mt-12 lg:mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center">
           {servicesData.map((service, index) => (
             <motion.div
               key={service.title}
@@ -87,17 +87,17 @@ export default function Services() {
               className="card-servico"
             >
               {/* 1. Círculo de ícone centralizado */}
-              <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center shrink-0 shadow-sm text-background">
+              <div className="w-14 h-14 rounded-full bg-support-color flex items-center justify-center shrink-0 shadow-sm text-primary">
                 <service.icon className="w-7 h-7 stroke-[2.2]" />
               </div>
 
               {/* 2. Título H3 centralizado */}
-              <h3 className="mt-6 subtitulo-card truncate w-full">
+              <h3 className="mt-6 subtitulo-card text-black-inktruncate w-full">
                 {service.title}
               </h3>
 
               {/* 3. Descrição centralizada */}
-              <p className="mt-6 texto-card line-clamp-4">
+              <p className="mt-6 texto-card text-soft-black-ink line-clamp-4">
                 {service.description}
               </p>
             </motion.div>

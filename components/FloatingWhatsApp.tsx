@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
       className="fixed bottom-6 right-6 z-50 flex items-center group"
     >
       {/* Tooltip informativo ao passar o mouse */}
-      <span className="hidden md:inline-block mr-3 px-4 py-2 rounded-full bg-ink text-background text-xs font-medium font-body shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+      <span className="hidden md:inline-block mr-3 px-4 py-2 rounded-full bg-black-ink text-white-ink text-xs font-medium font-body shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
         Plantão Urgência 24h
       </span>
 
@@ -25,7 +25,7 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar com a VIG Odontologia no WhatsApp 24h"
-        className="relative w-15 h-15 rounded-full bg-whatsapp text-background flex items-center justify-center shadow-2xl transition-shadow duration-300 hover:shadow-whatsapp focus:outline-none focus-visible:ring-4 focus-visible:ring-whatsapp/40"
+        className="relative w-15 h-15 rounded-full bg-whatsapp text-white-ink flex items-center justify-center shadow-2xl transition-shadow duration-300 hover:shadow-whatsapp focus:outline-none focus-visible:ring-4 focus-visible:ring-whatsapp/40"
       >
         {/* Anel de pulso contínuo */}
         <span

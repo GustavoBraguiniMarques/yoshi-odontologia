@@ -43,7 +43,7 @@ export default function Differentials() {
   return (
     <section
       id="diferenciais"
-      className="secao bg-surface"
+      className="secao bg-dark-bg"
     >
       <div className="container-secao">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
@@ -58,7 +58,7 @@ export default function Differentials() {
             {differentialPhotos.map((photo) => (
               <div
                 key={photo.src}
-                className={`absolute aspect-square rounded-full overflow-hidden border-4 border-primary bg-surface ${photo.className}`}
+                className={`absolute aspect-square rounded-full overflow-hidden border-4 border-support-color bg-light-bg ${photo.className}`}
               >
                 <Image
                   src={photo.src}
@@ -80,17 +80,17 @@ export default function Differentials() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="w-full lg:max-w-143 flex flex-col items-start"
           >
-            <h2 className="titulo-secao max-w-125 [text-wrap:balance]">
+            <h2 className="titulo-secao text-white-ink max-w-125 [text-wrap:balance]">
               Nossos Diferenciais
             </h2>
 
-            <div className="mt-8 flex flex-col gap-6 max-w-138">
+            <div className="mt-10 flex flex-col gap-8 max-w-138">
               {differentialsData.map((item) => (
                 <p
                   key={item.title}
                   className="texto-secao text-[18px] md:text-[20px]"
                 >
-                  <span className="font-semibold text-primary">
+                  <span className="font-semibold text-support-color">
                     {item.title}{' '}
                   </span>
                   {item.description}

@@ -10,15 +10,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full bg-surface overflow-visible"
+      className="relative w-full bg-dark-bg overflow-visible"
     >
       {/* Hero container alinhado ao grid de 1140px */}
       <div className="relative w-full overflow-hidden">
         {/* Brilho branco radial atrás da foto */}
-        <div
-          aria-hidden="true"
-          className="absolute left-[40%] top-0 w-[60%] h-full pointer-events-none z-0 bg-[image:var(--gradient-hero)]"
-        />
+        
 
         {/* Conteúdo em grade de 2 colunas: centralizado no mobile e tablet, à esquerda no desktop */}
         <div className="relative z-10 container-secao py-15 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-145 lg:min-h-180">
@@ -65,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-113 md:max-w-130 lg:w-144 lg:h-173 lg:max-w-144 aspect-[5/6] [filter:var(--filter-hero)] rounded-card overflow-hidden shadow-card border-4 border-primary-light bg-background shrink-0"
+              className="relative w-full max-w-113 md:max-w-130 lg:w-144 lg:h-173 lg:max-w-144 aspect-[5/6] [filter:var(--filter-hero)] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg shrink-0"
             >
               <Image
                 src="/images/hero-image.jpeg"

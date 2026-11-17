@@ -64,7 +64,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${philosopher.variable} ${poppins.variable} ${lato.variable}`}
     >
-      <body className="font-body text-ink-body antialiased bg-background selection:bg-primary/20 selection:text-ink">
+      <body className="font-body antialiased bg-light-bg selection:bg-primary/20 selection:text-black-ink">
         {children}
       </body>
     </html>

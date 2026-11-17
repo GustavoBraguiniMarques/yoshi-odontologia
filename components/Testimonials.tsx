@@ -179,7 +179,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="secao bg-surface"
+      className="secao bg-dark-bg"
     >
       <div className="container-secao flex flex-col items-center">
         {/* H2 centralizado */}
@@ -188,7 +188,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="titulo-secao text-center [text-wrap:balance]"
+          className="titulo-secao text-white-ink text-center [text-wrap:balance]"
         >
           Depoimentos dos Pacientes
         </motion.h2>
@@ -200,7 +200,7 @@ export default function Testimonials() {
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
-          className="mt-12 lg:mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-91 md:max-w-190 lg:max-w-full justify-items-center mx-auto touch-pan-y select-none cursor-grab active:cursor-grabbing"
+          className="mt-12 lg:mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-90 md:max-w-190 lg:max-w-full justify-items-center mx-auto touch-pan-y select-none cursor-grab active:cursor-grabbing"
         >
           {visibleCards.map((item, index) => (
             <motion.div
@@ -225,13 +225,13 @@ export default function Testimonials() {
               </div>
 
               {/* 2. Depoimento / Citação */}
-              <blockquote className="font-body italic text-[15px] md:text-[16px] leading-texto font-normal text-ink-body max-w-70 my-auto line-clamp-4">
+              <blockquote className="font-body italic text-[15px] md:text-[16px] leading-texto font-normal text-soft-black-ink max-w-70 my-auto line-clamp-4">
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
 
               {/* 3. Imagem (avatar) e 4. Nome */}
               <div className="flex flex-col items-center gap-2 mt-4">
-                <div className="w-13 h-13 rounded-full overflow-hidden shrink-0 shadow-inner bg-surface border-2 border-border/30">
+                <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 shadow-inner bg-light-bg border-2 border-support-color">
                   <Image
                     src={item.avatar}
                     alt="Foto do paciente"
@@ -242,7 +242,7 @@ export default function Testimonials() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="selo-destaque text-[16px]">
+                <span className="selo-destaque text[16px] md:text-[18px]">
                   {item.name}
                 </span>
               </div>
@@ -258,7 +258,7 @@ export default function Testimonials() {
             whileTap={{ scale: 0.9 }}
             type="button"
             onClick={handlePrev}
-            className="w-11 flex items-center justify-center text-border-muted hover:text-ink transition-colors focus:outline-none"
+            className="w-11 flex items-center justify-center text-support-color hover:text-primary transition-colors focus:outline-none"
             aria-label="Depoimentos anteriores"
           >
             <svg
@@ -289,7 +289,7 @@ export default function Testimonials() {
                   className={`rounded-full transition-all duration-200 focus:outline-none shrink-0 ${
                     isActive
                       ? 'w-3 h-3 bg-primary scale-110'
-                      : 'w-2 h-2 bg-border-muted hover:bg-border'
+                      : 'w-2 h-2 bg-support-color hover:bg-dark-bg'
                   }`}
                 />
               );
@@ -302,7 +302,7 @@ export default function Testimonials() {
             whileTap={{ scale: 0.9 }}
             type="button"
             onClick={handleNext}
-            className="w-11 flex items-center justify-center text-primary hover:text-primary-dark transition-colors focus:outline-none"
+            className="w-11 flex items-center justify-center text-support-color hover:text-primary transition-colors focus:outline-none"
             aria-label="Próximos depoimentos"
           >
             <svg
