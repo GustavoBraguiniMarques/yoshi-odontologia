@@ -19,11 +19,11 @@ export default function Header() {
 
   return (
     <header className="relative w-full bg-dark-bg z-30">
-      <div className="container-secao h-20 flex items-center justify-between">
+      <div className="container-secao h-20 grid grid-cols-[1fr_auto_1fr] items-center">
         {/* 1. Logo à esquerda com proporção aumentada */}
         <a
           href="#home"
-          className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1"
+          className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1 justify-self-start"
           aria-label="VIG Odontologia - Início"
         >
           <Image
@@ -56,10 +56,10 @@ export default function Header() {
         
 
         {/* Mobile menu trigger */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="col-start-3 justify-self-end flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-black-ink focus:outline-none"
+            className="p-2 text-support-color focus:outline-none"
             aria-label="Abrir menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

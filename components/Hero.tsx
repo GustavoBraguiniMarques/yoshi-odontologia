@@ -18,14 +18,14 @@ export default function Hero() {
         
 
         {/* Conteúdo em grade de 2 colunas: centralizado no mobile e tablet, à esquerda no desktop */}
-        <div className="relative z-10 container-secao py-15 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-h-145 lg:min-h-180">
+        <div className="relative z-10 container-secao py-15 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Coluna da esquerda */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="titulo-hero max-w-137 [text-wrap:balance]"
+              className="titulo-hero max-w-80 md:max-w-120 [text-wrap:balance]"
             >
               Próteses e Implantes em Maringá
             </motion.h1>
@@ -34,7 +34,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="texto-secao mt-3 lg:mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
+              className="texto-secao mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
             >
               Cuidado odontológico completo com pronto atendimento 24 horas, implantes avançados e conforto absoluto no coração de Maringá.
             </motion.p>
@@ -43,7 +43,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center justify-center lg:justify-start w-full lg:w-auto mt-5 lg:mt-6"
+              className="flex items-center justify-center lg:justify-start w-full lg:w-auto mt-6"
             >
               <Button
                 href={WHATSAPP_URL}
@@ -62,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-113 md:max-w-130 lg:w-144 lg:h-173 lg:max-w-144 aspect-[5/6] [filter:var(--filter-hero)] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg shrink-0"
+              className="relative w-full max-w-90 md:max-w-200 aspect-[6/7] [filter:var(--filter-hero)] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg shrink-0"
             >
               <Image
                 src="/images/hero-image.jpeg"

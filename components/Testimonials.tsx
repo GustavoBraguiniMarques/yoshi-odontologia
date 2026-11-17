@@ -54,28 +54,7 @@ const testimonialsSets: TestimonialItem[][] = [
       quote: 'Clareamento seguro e sem dor. O resultado ficou muito natural e a equipe explica tudo com clareza.',
       todoBriefing: 'TODO: Depoimento provisório paciente 6.',
     },
-  ],
-  // Página 3
-  [
-    {
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
-      name: 'Patricia Mendes',
-      quote: 'Excelente suporte na urgência após quebrar uma restauração. Saí do consultório sem qualquer incômodo.',
-      todoBriefing: 'TODO: Depoimento provisório paciente 7.',
-    },
-    {
-      avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=80',
-      name: 'Gustavo Rocha',
-      quote: 'Ambiente acolhedor e equipamentos novos. O melhor atendimento odontológico de Maringá.',
-      todoBriefing: 'TODO: Depoimento provisório paciente 8.',
-    },
-    {
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
-      name: 'Larissa Nogueira',
-      quote: 'Equipe cirúrgica muito capacitada. Fiz implante unitário sem inchaço nem dor no pós-operatório.',
-      todoBriefing: 'TODO: Depoimento provisório paciente 9.',
-    },
-  ],
+  ]
 ];
 
 const allTestimonials: TestimonialItem[] = testimonialsSets.flat();
@@ -101,18 +80,20 @@ export default function Testimonials() {
   const cardsPerPage = useSyncExternalStore(subscribe, getCardsPerPage, getServerSnapshot);
   const [activePageIndex, setActivePageIndex] = useState(0);
 
-  const totalPages = Math.ceil(allTestimonials.length / cardsPerPage);
-  const safePageIndex = activePageIndex >= totalPages ? 0 : activePageIndex;
+  // Avança um depoimento por vez, de forma circular
+  const total = allTestimonials.length;
+  const safePageIndex = activePageIndex % total;
 
-  const startIndex = safePageIndex * cardsPerPage;
-  const visibleCards = allTestimonials.slice(startIndex, startIndex + cardsPerPage);
+  const visibleCards = Array.from({ length: cardsPerPage }, (_, i) =>
+    allTestimonials[(safePageIndex + i) % total]
+  );
 
   const handlePrev = () => {
-    setActivePageIndex((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
+    setActivePageIndex((prev) => (prev > 0 ? prev - 1 : total - 1));
   };
 
   const handleNext = () => {
-    setActivePageIndex((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
+    setActivePageIndex((prev) => (prev < total - 1 ? prev + 1 : 0));
   };
 
   // Suporte a gestos touch (arrastar do dedo) em mobile e tablet
@@ -183,8 +164,7 @@ export default function Testimonials() {
     >
       <div className="container-secao flex flex-col items-center">
         {/* H2 centralizado */}
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
+        <motion.h2  
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -204,7 +184,7 @@ export default function Testimonials() {
         >
           {visibleCards.map((item, index) => (
             <motion.div
-              key={`${item.name}-${safePageIndex}-${index}`}
+              key={item.name}
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
@@ -275,8 +255,8 @@ export default function Testimonials() {
           </motion.button>
 
           {/* Pontos de paginação */}
-          <div className="flex items-center gap-3 md:gap-4 max-w-full overflow-x-auto py-1">
-            {Array.from({ length: totalPages }).map((_, dotIndex) => {
+          <div className="flex items-center gap-3 md:gap-4 max-w-full overflow-x-hidden py-1">
+            {Array.from({ length: total }).map((_, dotIndex) => {
               const isActive = dotIndex === safePageIndex;
               return (
                 <motion.button
