@@ -57,16 +57,16 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="secao bg-light-bg"
+      className="section dark-section"
     >
-      <div className="container-secao flex flex-col items-center">
+      <div className="section-container flex flex-col items-center">
         {/* H2 centralizado com animação */}
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
-          className="titulo-secao text-black-ink text-center [text-wrap:balance]"
+          className="text-center [text-wrap:balance]"
         >
           Tratamentos Mais Procurados
         </motion.h2>
@@ -84,7 +84,7 @@ export default function Services() {
                 delay: index * 0.12,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              className="card-servico"
+              className="card service-card"
             >
               {/* 1. Círculo de ícone centralizado */}
               <div className="w-14 h-14 rounded-full bg-support-color flex items-center justify-center shrink-0 shadow-sm text-primary">
@@ -92,12 +92,12 @@ export default function Services() {
               </div>
 
               {/* 2. Título H3 centralizado */}
-              <h3 className="mt-6 subtitulo-card text-black-inktruncate w-full">
+              <h3 className="mt-6 w-full">
                 {service.title}
               </h3>
 
               {/* 3. Descrição centralizada */}
-              <p className="mt-6 texto-card text-soft-black-ink line-clamp-4">
+              <p className="mt-6 texto-card !text-soft-black-ink line-clamp-4">
                 {service.description}
               </p>
             </motion.div>

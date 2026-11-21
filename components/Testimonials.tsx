@@ -160,15 +160,15 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="secao bg-(image:--dark-gradient)"
+      className="section light-section bg-[linear-gradient(180deg,var(--light-bg),var(--light-bg2))]"
     >
-      <div className="container-secao flex flex-col items-center">
+      <div className="section-container flex flex-col items-center">
         {/* H2 centralizado */}
         <motion.h2  
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
-          className="titulo-secao text-white-ink text-center [text-wrap:balance]"
+          className="text-center [text-wrap:balance]"
         >
           Depoimentos dos Pacientes
         </motion.h2>
@@ -192,7 +192,7 @@ export default function Testimonials() {
                 delay: index * 0.08,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              className="card-depoimento"
+              className="card testimony-card"
             >
               {/* 1. Estrelas */}
               <div className="flex items-center justify-center gap-0 mb-2">
@@ -205,7 +205,7 @@ export default function Testimonials() {
               </div>
 
               {/* 2. Depoimento / Citação */}
-              <blockquote className="font-body italic text-[15px] md:text-[16px] leading-texto font-normal text-soft-black-ink max-w-70 my-auto line-clamp-4">
+              <blockquote className="font-body italic text-[15px] md:text-[17px] leading-texto font-normal text-soft-black-ink max-w-70 my-auto line-clamp-4">
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
 

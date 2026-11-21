@@ -8,9 +8,9 @@ export default function TeamDentist() {
   return (
     <section
       id="dentist"
-      className="secao bg-light-bg overflow-hidden"
+      className="section dark-section"
     >
-      <div className="container-secao grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         {/* Coluna esquerda: título e descrição */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -19,7 +19,7 @@ export default function TeamDentist() {
           transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
           className="flex flex-col text-center lg:text-left items-center lg:items-start"
         >
-          <h2 className="titulo-secao text-black-ink">
+          <h2>
             Três gerações, um legado.
           </h2>
           <div className="flex flex-col gap-6 mt-4 texto-secao text-black-ink">
@@ -41,7 +41,7 @@ export default function TeamDentist() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 1.0, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-          className="relative w-full aspect-[7/8] rounded-card overflow-hidden shadow-card border-6 border-support-color bg-light-bg"
+          className="relative w-full aspect-[7/8] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg"
         >
           <Image
             src="/images/equipe.png"

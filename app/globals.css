@@ -55,28 +55,60 @@
   --leading-texto: 1.6;
 }
 
-@utility secao {
+@utility section {
   @apply relative w-full py-15 md:py-30;
+
+  & h1 {
+    @apply font-heading leading-titulo font-bold max-w-80 md:max-w-full !text-[44px] md:!text-[56px] ;
+  }
+
+  & h2 {
+    @apply font-heading text-[36px] md:text-[44px] leading-titulo font-bold;
+  }
+
+  & h3 {
+    @apply font-heading text-[24px] md:text-[28px] leading-subtitulo font-bold;
+  }
 }
 
-@utility container-secao {
+@utility light-section {
+  @apply bg-(image:--light-gradient);
+
+  & h2 {
+    @apply text-black-ink;
+  }
+
+  & p {
+    @apply text-soft-black-ink;
+  }
+}
+
+@utility dark-section {
+  @apply bg-(image:--dark-gradient);
+
+  & h2 {
+    @apply text-white-ink;
+  }
+  
+  & p {
+    @apply text-soft-white-ink;
+  }
+}
+
+@utility section-container {
   @apply max-w-285 mx-auto px-4 md:px-0;
 }
 
-@utility titulo-hero {
-  @apply font-heading text-[44px] md:text-[56px] leading-titulo font-bold text-white-ink;
-}
-
-@utility titulo-secao {
+/* @utility section-title {
   @apply font-heading text-[36px] md:text-[44px] leading-titulo font-bold;
-}
+} */
 
 @utility subtitulo-card {
   @apply font-heading text-[24px] md:text-[28px] leading-subtitulo font-bold;
 }
 
 @utility texto-secao {
-  @apply font-body text-[17px] text-soft-white-ink md:text-[20px] leading-texto font-normal;
+  @apply font-body text-[17px] text-soft-black-ink md:text-[20px] leading-texto font-normal;
 }
 
 @utility texto-card {
@@ -91,26 +123,27 @@
   @apply font-body text-[15px] leading-texto font-normal text-soft-white-ink;
 }
 
-@utility card-servico { 
-  @apply w-full max-w-91 h-78 bg-light-bg rounded-card shadow-card border-2 border-support-color px-8 py-10 flex flex-col items-center text-center;
+
+@utility card {
+  @apply w-full rounded-card shadow-card flex flex-col items-center text-center;
 }
 
-@utility card-depoimento {
-  @apply w-full max-w-90 min-h-80 bg-light-bg rounded-card shadow-card px-6 py-8 flex flex-col items-center text-center justify-between;
+
+@utility service-card { 
+  @apply max-w-91 h-78 bg-light-bg border-2 border-support-color px-8 py-10;
 }
 
-@utility card-cta {
-  @apply w-full min-h-70 lg:min-h-80 bg-support-color rounded-none md:rounded-card border-0 px-6 md:px-12 pt-14 pb-15 flex flex-col items-center justify-center text-center shadow-card;
+@utility testimony-card {
+  @apply max-w-90 min-h-80 bg-light-bg px-6 py-8 justify-between;
 }
 
-@utility card-funcionamento {
-  @apply mt-5 p-4 rounded-xl bg-support-color/20 border border-support-color w-full flex items-start gap-3;
+@utility cta-card {
+  @apply min-h-70 lg:min-h-80 bg-support-color rounded-none md:rounded-card border-0 px-6 md:px-12 pt-14 pb-15 justify-center text-center;
 }
 
-@utility item-contato {
-  @apply flex items-center gap-3;
+@utility time-card {
+  @apply mt-5 p-4 bg-support-color/20 border border-support-color items-start gap-3;
 }
-
 
 html {
   scroll-behavior: smooth;

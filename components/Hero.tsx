@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full bg-(image:--dark-gradient) overflow-visible"
+      className="section light-section p-0 overflow-visible"
     >
       <Header />
 
@@ -19,14 +19,13 @@ export default function Hero() {
       <div className="relative w-full overflow-hidden">        
 
         {/* Conteúdo em grade de 2 colunas: centralizado no mobile e tablet, à esquerda no desktop */}
-        <div className="relative z-10 container-secao py-15 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="relative z-10 section-container py-15 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Coluna da esquerda */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
-              className="titulo-hero max-w-80 md:max-w-full"
             >
               Especialistas em <span className="text-primary">próteses e implantes</span> no centro de Curitiba
             </motion.h1>

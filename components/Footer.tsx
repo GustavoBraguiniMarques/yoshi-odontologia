@@ -14,9 +14,9 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative w-full bg-(image:--dark-gradient) text-white-ink pt-15 pb-8 overflow-hidden"
+      className="section dark-section pt-15 pb-8"
     >
-      <div className="container-secao">
+      <div className="section-container">
         {/* Grade de 3 colunas */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12">
           {/* Coluna 1: Logo, Localização e Mapa */}
@@ -27,8 +27,8 @@ export default function Footer() {
               aria-label="VIG Odontologia - Início"
             >
               <Image
-                src="/images/logo.png"
-                alt="VIG Odontologia"
+                src="/images/light-logo.png"
+                alt="Yoshi Odontologia"
                 width={240}
                 height={70}
                 unoptimized
@@ -136,7 +136,7 @@ export default function Footer() {
             <h4 className="font-body text-[24px] leading-subtitulo font-semibold text-white-ink tracking-wide">
               Funcionamento
             </h4>
-            <div className="card-funcionamento">
+            <div className="card time-card">
               <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary shrink-0 mt-1">
                 <Clock className="w-5 h-5 stroke-[2.2]" />
               </div>

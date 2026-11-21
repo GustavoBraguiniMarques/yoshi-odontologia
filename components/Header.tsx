@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="relative w-full bg-transparent z-30">
-      <div className="container-secao h-25 grid grid-cols-[auto_auto] items-center">
+      <div className="section-container h-25 grid grid-cols-[auto_auto] items-center">
         {/* 1. Logo à esquerda com proporção aumentada */}
         <a
           href="#home"
@@ -27,8 +27,8 @@ export default function Header() {
           aria-label="VIG Odontologia - Início"
         >
           <Image
-            src="/images/logo.png"
-            alt="VIG Odontologia"
+            src="/images/dark-logo.png"
+            alt="Yoshi Odontologia"
             width={240}
             height={60}
             priority
@@ -46,7 +46,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`font-nav text-[15px] lg:text-[16px] leading-titulo uppercase transition-colors whitespace-nowrap text-soft-white-ink hover:text-white-ink`}
+              className={`font-nav text-[15px] lg:text-[16px] leading-titulo uppercase transition-colors whitespace-nowrap text-soft-black-ink hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
             >
               {link.label}
             </a>
