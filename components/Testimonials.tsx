@@ -160,14 +160,14 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="secao bg-dark-bg"
+      className="secao bg-(image:--dark-gradient)"
     >
       <div className="container-secao flex flex-col items-center">
         {/* H2 centralizado */}
         <motion.h2  
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
           className="titulo-secao text-white-ink text-center [text-wrap:balance]"
         >
           Depoimentos dos Pacientes
@@ -188,9 +188,9 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                duration: 0.4,
-                delay: index * 0.05,
-                ease: [0.16, 1, 0.3, 1],
+                duration: 0.7,
+                delay: index * 0.08,
+                ease: [0.22, 0.61, 0.36, 1],
               }}
               className="card-depoimento"
             >

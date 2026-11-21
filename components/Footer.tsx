@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="relative w-full bg-dark-bg text-white-ink pt-15 pb-8 overflow-hidden"
+      className="relative w-full bg-(image:--dark-gradient) text-white-ink pt-15 pb-8 overflow-hidden"
     >
       <div className="container-secao">
         {/* Grade de 3 colunas */}
@@ -32,7 +32,7 @@ export default function Footer() {
                 width={240}
                 height={70}
                 unoptimized
-                className="h-14 md:h-17 w-auto object-contain"
+                className="h-14 md:h-16 w-auto object-contain"
               />
             </a>
 
@@ -47,8 +47,8 @@ export default function Footer() {
             {/* Bloco de incorporação de mapa do Google */}
             <div className="mt-4 w-full aspect-[2/1] min-h-53 rounded-xl overflow-hidden border border-primary shadow-inner relative group">
               <iframe
-                title="Localização VIG Odontologia Maringá"
-                src="https://maps.google.com/maps?q=Av.+Dr.+Alexandre+Rasgulaeff,+329+-+Jardim+Alvorada,+Maring%C3%A1+-+PR,+87010-050&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                title="Localização Yoshi Odontologia Curitiba"
+                src="https://maps.google.com/maps?q=Rua+Brigadeiro+Franco,+441+-+Mercês,+Curitiba+-+PR,+80430-210&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-[calc(100%+136px)] -mt-34 border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

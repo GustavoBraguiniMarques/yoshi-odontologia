@@ -4,18 +4,19 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
+import Header from './Header';
 import { WHATSAPP_URL } from './constants';
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full bg-dark-bg overflow-visible"
+      className="relative w-full bg-(image:--dark-gradient) overflow-visible"
     >
+      <Header />
+
       {/* Hero container alinhado ao grid de 1140px */}
-      <div className="relative w-full overflow-hidden">
-        {/* Brilho branco radial atrás da foto */}
-        
+      <div className="relative w-full overflow-hidden">        
 
         {/* Conteúdo em grade de 2 colunas: centralizado no mobile e tablet, à esquerda no desktop */}
         <div className="relative z-10 container-secao py-15 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -24,25 +25,25 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="titulo-hero max-w-80 md:max-w-120 [text-wrap:balance]"
+              transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
+              className="titulo-hero max-w-80 md:max-w-full"
             >
-              Próteses e Implantes em Maringá
+              Especialistas em <span className="text-primary">próteses e implantes</span> no centro de Curitiba
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
               className="texto-secao mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
             >
-              Cuidado odontológico completo com pronto atendimento 24 horas, implantes avançados e conforto absoluto no coração de Maringá.
+              Cuidado odontológico completo, com especialidade em ortodontia, implantes e próteses, localizada no coração de Curitiba.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
               className="flex items-center justify-center lg:justify-start w-full lg:w-auto mt-6"
             >
               <Button
@@ -57,20 +58,20 @@ export default function Hero() {
           </div>
 
           {/* Coluna da direita com imagem em proporção 5:6 */}
-          <div className="lg:col-span-6 flex items-center justify-center lg:justify-end">
+          <div className="lg:col-span-6 flex items-center justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-90 md:max-w-200 aspect-[6/7] [filter:var(--filter-hero)] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg shrink-0"
+              transition={{ duration: 1.2, delay: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
+              className="relative w-full max-w-90 md:max-w-120 aspect-[6/7]  shrink-0"
             >
               <Image
-                src="/images/hero-image.jpeg"
+                src="/images/hero-image.png"
                 alt="Modelo odontológico profissional demonstrando prótese e implante dentário"
                 fill
                 unoptimized
                 priority
-                className="object-cover object-center"
+                className="object-contain object-center"
               />
             </motion.div>
           </div>

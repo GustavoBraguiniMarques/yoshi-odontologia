@@ -18,12 +18,12 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative w-full bg-dark-bg z-30">
-      <div className="container-secao h-20 grid grid-cols-[1fr_auto_1fr] items-center">
+    <header className="relative w-full bg-transparent z-30">
+      <div className="container-secao h-25 grid grid-cols-[auto_auto] items-center">
         {/* 1. Logo à esquerda com proporção aumentada */}
         <a
           href="#home"
-          className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1 justify-self-start"
+          className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg justify-self-start"
           aria-label="VIG Odontologia - Início"
         >
           <Image
@@ -33,13 +33,13 @@ export default function Header() {
             height={60}
             priority
             unoptimized
-            className="h-14 md:h-15 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            className="h-10 md:h-20 w-auto object-contain transition-transform group-hover:scale-[1.02]"
           />
         </a>
 
         {/* 2. Links diretos com gap reduzido */}
         <nav
-          className="hidden md:flex items-center gap-5 lg:gap-6"
+          className="hidden md:flex items-center gap-5 lg:gap-14"
           aria-label="Navegação Principal"
         >
           {navLinks.map((link) => (
@@ -66,9 +66,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-
-      {/* Divisor da navbar: Linha 1px em border */}
-      <div className="max-w-285 mx-auto border-b border-support-color" />
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (

@@ -1,13 +1,14 @@
 export const WHATSAPP_URL =
-  'https://wa.me/5544999862487?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20atendimento';
+  'https://wa.me/5541987719197?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20atendimento';
 
 export const CLINIC_INFO = {
-  name: 'VIG Odontologia',
-  shortAddress: 'Av. Dr. Alexandre Rasgulaeff, 329',
+  name: 'Yoshi Odontologia',
+  shortAddress: 'Rua Brigadeiro Franco, 441',
   fullAddress:
-    'Av. Dr. Alexandre Rasgulaeff, 329 - Sala 02 - Jardim Alvorada, Maringá - PR, 87010-050',
-  phoneDisplay: '(44) 99986-2487',
-  phoneClean: '5544999862487',
+    'Rua Brigadeiro Franco, 441 - Mercês, Curitiba - PR, 80430-210',
+  phoneDisplay: '(41) 98771-9197',
+  phoneClean: '5541987719197',
   hours: 'Aberto 24 Horas Todos os Dias',
-  city: 'Maringá/PR',
+  city: 'Curitiba/PR',
 };
+

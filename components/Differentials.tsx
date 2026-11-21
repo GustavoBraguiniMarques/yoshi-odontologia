@@ -43,7 +43,7 @@ export default function Differentials() {
   return (
     <section
       id="diferenciais"
-      className="secao bg-dark-bg"
+      className="secao bg-(image:--dark-gradient)"
     >
       <div className="container-secao">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
@@ -52,7 +52,7 @@ export default function Differentials() {
             initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
             className="relative w-full max-w-135 h-100 md:h-150 lg:h-151 lg:-ml-18 shrink-0"
           >
             {differentialPhotos.map((photo) => (
@@ -77,7 +77,7 @@ export default function Differentials() {
             initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
             className="w-full lg:max-w-143 flex flex-col items-start"
           >
             <h2 className="titulo-secao text-white-ink max-w-125 [text-wrap:balance]">
@@ -88,9 +88,9 @@ export default function Differentials() {
               {differentialsData.map((item) => (
                 <p
                   key={item.title}
-                  className="texto-secao text-[18px] md:text-[20px]"
+                  className="texto-secao text-[18px] md:text-[20px] font-thin"
                 >
-                  <span className="font-semibold text-support-color">
+                  <span className="font-black">
                     {item.title}{' '}
                   </span>
                   {item.description}

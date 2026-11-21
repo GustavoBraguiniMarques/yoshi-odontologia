@@ -33,7 +33,7 @@ const servicesData: ServiceItem[] = [
   },
   {
     icon: Sparkles,
-    title: 'Estética',
+    title: 'Ortodentia',
     description: 'Correção de cor e formato para deixar o seu sorriso o mais harmonioso possível.',
   },
   {
@@ -43,12 +43,12 @@ const servicesData: ServiceItem[] = [
   },
   {
     icon: Droplets,
-    title: 'Limpeza',
+    title: 'Invisalign',
     description: 'Higienização bucal completa, para deixar seus dentes e gengivas saudáveis.',
   },
   {
     icon: RefreshCw,
-    title: 'Reconstrução',
+    title: 'Faceta',
     description: 'Reparo de dentes quebrados ou desgastados, devolvendo tada a força e estética.',
   },
 ];
@@ -65,7 +65,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
           className="titulo-secao text-black-ink text-center [text-wrap:balance]"
         >
           Tratamentos Mais Procurados
@@ -80,9 +80,9 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{
-                duration: 0.55,
-                delay: index * 0.08,
-                ease: [0.16, 1, 0.3, 1],
+                duration: 0.9,
+                delay: index * 0.12,
+                ease: [0.22, 0.61, 0.36, 1],
               }}
               className="card-servico"
             >
@@ -109,7 +109,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-30px' }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 1.0, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
           className="mt-14 flex justify-center"
         >
           <Button

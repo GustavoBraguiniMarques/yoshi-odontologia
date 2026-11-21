@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Differentials from '@/components/Differentials';
 import Services from '@/components/Services';
@@ -12,10 +11,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-light-bg selection:bg-primary/20 selection:text-black-ink relative">
-      {/* 0. Header separado das seções */}
-      <Header />
-
-      {/* 1. Hero */}
+      {/* 1. Hero (inclui o Header, compartilhando o mesmo background) */}
       <Hero />
 
       {/* 2. Serviços */}

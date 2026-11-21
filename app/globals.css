@@ -3,9 +3,11 @@
 :root {
   /* --- Marca --- */
   --primary: #7D6132;
-  --support-color: #D7C9AA;
+  --support-color: #ffecc5;
   --light-bg: #FBFFF1;
+  --light-bg2: #f0f4e5;
   --dark-bg: #20303D;
+  --dark-bg2: #09141e;
 
   /* --- Textos --- */
   --black-ink: #2E1903;
@@ -18,9 +20,11 @@
   --whatsapp: #25D366;
 
   /* --- Gradientes & Filtros --- */
-  --gradient-hero: radial-gradient(ellipse 50% 60% at 50% 40%, var(--light-bg) 0%, transparent 100%);
   --filter-hero: drop-shadow(0 24px 40px color-mix(in srgb, var(--primary) 30%, transparent));
+  --dark-gradient: linear-gradient(135deg, var(--dark-bg), var(--dark-bg2));
+  --light-gradient: linear-gradient(135deg, var(--light-bg), var(--light-bg2));
 }
+
 
 @theme inline {
   --color-primary: var(--primary);
@@ -56,19 +60,19 @@
 }
 
 @utility container-secao {
-  @apply max-w-285 mx-auto px-4 md:px-6;
+  @apply max-w-285 mx-auto px-4 md:px-0;
 }
 
 @utility titulo-hero {
-  @apply font-heading text-[44px] md:text-[64px] lg:text-[84px] leading-titulo font-bold text-white-ink;
+  @apply font-heading text-[44px] md:text-[56px] leading-titulo font-bold text-white-ink;
 }
 
 @utility titulo-secao {
-  @apply font-heading text-[36px] md:text-[44px] lg:text-[48px] leading-titulo font-bold;
+  @apply font-heading text-[36px] md:text-[44px] leading-titulo font-bold;
 }
 
 @utility subtitulo-card {
-  @apply font-heading text-[28px] md:text-[32px] leading-subtitulo font-bold;
+  @apply font-heading text-[24px] md:text-[28px] leading-subtitulo font-bold;
 }
 
 @utility texto-secao {
