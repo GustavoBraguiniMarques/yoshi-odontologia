@@ -4,15 +4,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { clinic } from '@/config/clinic';
+import { content } from '@/config/content';
 
-const navLinks = [
-  { href: '#home', label: 'Início', active: true },
-  { href: '#diferenciais', label: 'Diferenciais' },
-  { href: '#services', label: 'Tratamentos' },
-  { href: '#dentist', label: 'Sobre Nós' },
-  { href: '#testimonials', label: 'Depoimentos' },
-  { href: '#footer', label: 'Contato' },
-];
+// Menu vem de config/content.ts; sem depoimentos, o link "Depoimentos" sai do menu.
+const navLinks = content.nav.filter(
+  (link) => link.href !== '#testimonials' || content.testimonials.items.length > 0
+);
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,7 +69,7 @@ export default function Header() {
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`font-nav text-[16px] leading-titulo uppercase ${
-                  link.active ? 'font-bold text-primary' : 'text-black-ink'
+                  link.href === '#home' ? 'font-bold text-primary' : 'text-black-ink'
                 }`}
               >
                 {link.label}

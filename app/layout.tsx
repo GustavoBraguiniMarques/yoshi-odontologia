@@ -4,25 +4,27 @@ import { clinic } from '@/config/clinic';
 import { siteUrl, allowIndexing, ogImage } from '@/lib/seo';
 import './globals.css';
 
-const philosopher = Philosopher({
+// Fontes do Google, servidas pelo próprio site. Para trocar uma fonte, mude o import e a chamada
+// abaixo; as variáveis (--font-*-family) têm o nome da função e não precisam mudar.
+const headingFont = Philosopher({
   weight: ['700'],
   subsets: ['latin'],
-  variable: '--font-philosopher',
+  variable: '--font-heading-family',
   display: 'swap',
 });
 
-const poppins = Poppins({
-  weight: ['300', '400', '500', '600', '700', '800'],
+const bodyFont = Poppins({
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  variable: '--font-poppins',
+  variable: '--font-body-family',
   display: 'swap',
 });
 
-const lato = Lato({
+const navFont = Lato({
   weight: ['400', '700'],
   subsets: ['latin'],
-  variable: '--font-lato',
+  variable: '--font-nav-family',
   display: 'swap',
 });
 
@@ -68,7 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${philosopher.variable} ${poppins.variable} ${lato.variable}`}
+      className={`${headingFont.variable} ${bodyFont.variable} ${navFont.variable}`}
     >
       <body className="font-body antialiased bg-light-bg selection:bg-primary/20 selection:text-black-ink">
         {children}

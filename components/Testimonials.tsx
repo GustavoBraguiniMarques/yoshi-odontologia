@@ -4,45 +4,10 @@ import { useState, useSyncExternalStore, useRef } from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
 import { motion } from 'motion/react';
+import { content } from '@/config/content';
 
-interface TestimonialItem {
-  avatar: string;
-  name: string;
-  quote: string;
-}
-
-const allTestimonials: TestimonialItem[] = [
-  {
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-    name: 'Rodrigo Silva',
-    quote: 'Fui muito bem atendido do início ao fim. A equipe explicou cada etapa do tratamento com paciência.',
-  },
-  {
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
-    name: 'Marcos Vinicius',
-    quote: 'Fiz meus implantes com a equipe e o resultado superou todas as expectativas. Recuperação tranquila.',
-  },
-  {
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
-    name: 'Beatriz Lima',
-    quote: 'Clínica moderna, profissionais atenciosos e ambiente impecável. Recomendo com segurança.',
-  },
-  {
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-    name: 'Fernanda Costa',
-    quote: 'Desde a recepção até o fim da consulta, a atenção de toda a equipe foi impecável.',
-  },
-  {
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80',
-    name: 'Eduardo Silveira',
-    quote: 'Tratamento de prótese com ajuste perfeito. Consegui mastigar e sorrir novamente com confiança.',
-  },
-  {
-    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80',
-    name: 'Camila Duarte',
-    quote: 'Clareamento seguro e sem dor. O resultado ficou muito natural e a equipe explica tudo com clareza.',
-  },
-];
+const { testimonials } = content;
+const allTestimonials = testimonials.items;
 
 const starIndices = [0, 1, 2, 3, 4];
 
@@ -143,6 +108,9 @@ export default function Testimonials() {
     mouseStartY.current = null;
   };
 
+  // Sem depoimentos em config/content.ts, a seção não aparece.
+  if (total === 0) return null;
+
   return (
     <section
       id="testimonials"
@@ -151,7 +119,7 @@ export default function Testimonials() {
       <div className="section-container flex flex-col items-center">
         {/* H2 centralizado */}
         <h2 className="text-center [text-wrap:balance]">
-          Depoimentos dos Pacientes
+          {testimonials.title}
         </h2>
 
         {/* Grade responsiva com suporte a touch / swipe e drag */}
@@ -190,18 +158,20 @@ export default function Testimonials() {
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
 
-              {/* 3. Imagem (avatar) e 4. Nome */}
+              {/* 3. Foto (opcional) e 4. Nome */}
               <div className="flex flex-col items-center gap-2 mt-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 shadow-inner bg-light-bg border-2 border-support-color">
-                  <Image
-                    src={item.avatar}
-                    alt="Foto do paciente"
-                    width={52}
-                    height={52}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                {item.avatar && (
+                  <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 shadow-inner bg-light-bg border-2 border-support-color">
+                    <Image
+                      src={item.avatar}
+                      alt="Foto do paciente"
+                      width={52}
+                      height={52}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <span className="selo-destaque md:text-[18px]">
                   {item.name}
                 </span>

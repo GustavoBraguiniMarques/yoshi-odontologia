@@ -5,7 +5,9 @@ import { motion } from 'motion/react';
 import Button from './Button';
 import Header from './Header';
 import { whatsappUrl } from '@/config/clinic';
-import heroImage from '@/assets/images/hero.webp';
+import { content } from '@/config/content';
+
+const { hero } = content;
 
 export default function Hero() {
   return (
@@ -27,7 +29,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              Especialistas em <span className="text-primary">próteses e implantes</span> no centro de Curitiba
+              {hero.title.before}
+              <span className="text-primary">{hero.title.highlight}</span>
+              {hero.title.after}
             </motion.h1>
 
             <motion.p
@@ -36,7 +40,7 @@ export default function Hero() {
               transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
               className="texto-secao mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
             >
-              Cuidado odontológico completo, com especialidade em ortodontia, implantes e próteses, localizada no coração de Curitiba.
+              {hero.text}
             </motion.p>
 
             <motion.div
@@ -51,7 +55,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="h-18 px-16 rounded-lg"
               >
-                Agendar Consulta
+                {hero.button}
               </Button>
             </motion.div>
           </div>
@@ -65,8 +69,8 @@ export default function Hero() {
               className="relative w-full max-w-90 md:max-w-120 aspect-[6/7]  shrink-0"
             >
               <Image
-                src={heroImage}
-                alt="Modelo odontológico profissional demonstrando prótese e implante dentário"
+                src={hero.image.src}
+                alt={hero.image.alt}
                 fill
                 priority
                 className="object-contain object-center"

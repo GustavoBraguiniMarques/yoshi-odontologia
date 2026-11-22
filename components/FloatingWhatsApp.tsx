@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { clinic, whatsappUrl } from '@/config/clinic';
+import { content } from '@/config/content';
 
 export default function FloatingWhatsApp() {
   return (
@@ -13,7 +14,7 @@ export default function FloatingWhatsApp() {
     >
       {/* Tooltip informativo ao passar o mouse */}
       <span className="hidden md:inline-block mr-3 px-4 py-2 rounded-full bg-black-ink text-white-ink text-xs font-medium font-body shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-        Agende pelo WhatsApp
+        {content.floatingWhatsApp.tooltip}
       </span>
 
       {/* Botão flutuante com anel pulsante */}

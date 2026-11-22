@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { clinic } from '@/config/clinic';
-import teamPhoto from '@/assets/images/team.webp';
+import { content } from '@/config/content';
+
+const { about } = content;
 
 export default function TeamDentist() {
   return (
@@ -21,18 +22,14 @@ export default function TeamDentist() {
           className="flex flex-col text-center lg:text-left items-center lg:items-start"
         >
           <h2>
-            Três gerações, um legado.
+            {about.title}
           </h2>
           <div className="flex flex-col gap-6 mt-4 texto-secao text-black-ink">
-            <p className="mt-6">
-              A Yoshi nasceu de um sonho simples e poderoso: entregar o que há de melhor na odontologia para as pessoas. 
-            </p>
-            <p>
-              Construída com trabalho, dedicação e amor genuíno pela profissão, hoje reunimos todas as especialidades em duas unidades no Paraná. 
-            </p>
-            <p>
-              Somos guiados pela excelência em cada detalhe, cuidado com cada paciente e pelo propósito de transformar vidas através do sorriso. 
-            </p>
+            {about.paragraphs.map((paragraph, index) => (
+              <p key={paragraph} className={index === 0 ? 'mt-6' : undefined}>
+                {paragraph}
+              </p>
+            ))}
           </div>
         </motion.div>
 
@@ -45,8 +42,8 @@ export default function TeamDentist() {
           className="relative w-full aspect-[7/8] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg"
         >
           <Image
-            src={teamPhoto}
-            alt={`Equipe da ${clinic.name} reunida`}
+            src={about.photo.src}
+            alt={about.photo.alt}
             fill
             className="object-cover object-center"
           />

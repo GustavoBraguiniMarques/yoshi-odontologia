@@ -38,9 +38,9 @@
   --color-star: var(--star);
   --color-whatsapp: var(--whatsapp);
 
-  --font-heading: var(--font-philosopher), serif;
-  --font-body: var(--font-poppins), sans-serif;
-  --font-nav: var(--font-lato), sans-serif;
+  --font-heading: var(--font-heading-family), serif;
+  --font-body: var(--font-body-family), sans-serif;
+  --font-nav: var(--font-nav-family), sans-serif;
 }
 
 @theme {

@@ -1,56 +1,11 @@
 'use client';
 
 import { motion } from 'motion/react';
-import {
-  Anchor,
-  Crown,
-  Smile,
-  Sun,
-  ScanFace,
-  Sparkles,
-  type LucideIcon,
-} from 'lucide-react';
 import Button from './Button';
 import { whatsappUrl } from '@/config/clinic';
+import { content } from '@/config/content';
 
-interface ServiceItem {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}
-
-const servicesData: ServiceItem[] = [
-  {
-    icon: Anchor,
-    title: 'Implante',
-    description: 'Recuperação dos dentes fixos, volte a mastigar com muito mais segurança e firmeza.',
-  },
-  {
-    icon: Crown,
-    title: 'Prótese',
-    description: 'Substituição sob medida e de perfeito encaixe, gerando um visual 100% natural.',
-  },
-  {
-    icon: Smile,
-    title: 'Ortodontia',
-    description: 'Aparelhos que alinham os dentes e corrigem a mordida, para um sorriso harmonioso.',
-  },
-  {
-    icon: Sun,
-    title: 'Clareamento',
-    description: 'Deixe seus dentes visivelmente mais brancos e iluminados com total segurança.',
-  },
-  {
-    icon: ScanFace,
-    title: 'Invisalign',
-    description: 'Alinhadores transparentes e removíveis que corrigem o sorriso com discrição.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Faceta',
-    description: 'Lâminas finas e sob medida que corrigem cor, formato e imperfeições dos dentes.',
-  },
-];
+const { services } = content;
 
 export default function Services() {
   return (
@@ -67,12 +22,12 @@ export default function Services() {
           transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
           className="text-center [text-wrap:balance]"
         >
-          Tratamentos Mais Procurados
+          {services.title}
         </motion.h2>
 
         {/* Grade 3x2 de cards */}
         <div className="mt-12 lg:mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center">
-          {servicesData.map((service, index) => (
+          {services.items.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
@@ -116,7 +71,7 @@ export default function Services() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Agendar Tratamento
+            {services.button}
           </Button>
         </motion.div>
       </div>

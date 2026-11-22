@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Button from './Button';
 import { whatsappUrl } from '@/config/clinic';
+import { content } from '@/config/content';
 
 export default function FinalCTA() {
   return (
@@ -18,7 +19,7 @@ export default function FinalCTA() {
           className="card cta-card"
         >
           <h2 className="text-[32px] md:text-[42px] lg:text-[46px] text-black-ink max-w-208 [text-wrap:balance]">
-            Deseja agendar a sua avaliação ou tirar alguma dúvida?
+            {content.finalCta.title}
           </h2>
 
           {/* Botão padrão */}
@@ -28,7 +29,7 @@ export default function FinalCTA() {
             rel="noopener noreferrer"
             className="mt-7 lg:mt-9"
           >
-            Falar pelo WhatsApp
+            {content.finalCta.button}
           </Button>
         </motion.div>
       </div>

@@ -13,6 +13,7 @@ import {
   mapsEmbedUrl,
   croLine,
 } from '@/config/clinic';
+import { content } from '@/config/content';
 
 const legalLinks = [
   { href: '/terms/', label: 'Termos de Uso' },
@@ -65,7 +66,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="absolute bottom-3 right-3 z-10 bg-black-ink/85 hover:bg-black-ink text-white-ink text-[11px] font-medium px-3 py-1 rounded-md shadow-md transition-colors backdrop-blur-xs flex items-center gap-1"
               >
-                <span>Ver rota no Maps</span>
+                <span>{content.footer.routeLink}</span>
                 <span>↗</span>
               </a>
             </div>
@@ -74,7 +75,7 @@ export default function Footer() {
           {/* Coluna 2: Contatos */}
           <div className="md:col-span-6 lg:col-span-3 flex flex-col items-start lg:pl-4">
             <h4 className="font-body text-[24px] leading-subtitulo font-semibold text-white-ink tracking-wide">
-              Contatos
+              {content.footer.contactsTitle}
             </h4>
             <div className="mt-5 flex flex-col gap-4">
               {/* WhatsApp */}
@@ -144,7 +145,7 @@ export default function Footer() {
           {/* Coluna 3: Funcionamento */}
           <div className="md:col-span-6 lg:col-span-3 flex flex-col items-start lg:pl-2">
             <h4 className="font-body text-[24px] leading-subtitulo font-semibold text-white-ink tracking-wide">
-              Funcionamento
+              {content.footer.hoursTitle}
             </h4>
             <div className="card time-card">
               <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary shrink-0 mt-1">

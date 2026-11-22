@@ -3,42 +3,16 @@
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
-import { clinic, whatsappUrl } from '@/config/clinic';
-import patientPhoto from '@/assets/images/patient.webp';
-import officePhoto from '@/assets/images/office.webp';
-import teamPhoto from '@/assets/images/team.webp';
+import { whatsappUrl } from '@/config/clinic';
+import { content } from '@/config/content';
 
-const differentialPhotos = [
-  {
-    image: patientPhoto,
-    alt: `Paciente sorridente em atendimento na ${clinic.name}`,
-    className: 'left-0 top-[23.1%] w-[52.8%] z-[1] shadow-md',
-  },
-  {
-    image: officePhoto,
-    alt: `Consultório moderno da ${clinic.name} com tecnologia avançada`,
-    className: 'left-[39.4%] top-0 w-[60.6%] z-[2] shadow-lg',
-  },
-  {
-    image: teamPhoto,
-    alt: `Equipe de cirurgiões-dentistas da ${clinic.name}`,
-    className: 'left-[28.7%] top-[47.5%] w-[58.5%] z-[3] shadow-lg',
-  },
-];
+const { differentials } = content;
 
-const differentialsData = [
-  {
-    title: 'Atendimento humanizado:',
-    description: 'Cuidado atento a cada paciente, do primeiro contato ao fim do tratamento.',
-  },
-  {
-    title: 'Tudo num só lugar:',
-    description: 'Implantes, próteses, ortodontia, clareamento e estética na mesma clínica.',
-  },
-  {
-    title: 'Tecnologia de ponta:',
-    description: 'Recursos modernos para planejar cada implante e prótese com mais precisão.',
-  },
+// Posição de cada foto na colagem (mesma ordem de differentials.photos: esquerda, topo, embaixo)
+const photoPositions = [
+  'left-0 top-[23.1%] w-[52.8%] z-[1] shadow-md',
+  'left-[39.4%] top-0 w-[60.6%] z-[2] shadow-lg',
+  'left-[28.7%] top-[47.5%] w-[58.5%] z-[3] shadow-lg',
 ];
 
 export default function Differentials() {
@@ -57,13 +31,13 @@ export default function Differentials() {
             transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
             className="relative w-full max-w-135 h-100 md:h-150 lg:h-151 min-[1320px]:-ml-18 shrink-0"
           >
-            {differentialPhotos.map((photo) => (
+            {differentials.photos.map((photo, index) => (
               <div
-                key={photo.image.src}
-                className={`absolute aspect-square rounded-full overflow-hidden border-4 border-support-color bg-light-bg ${photo.className}`}
+                key={photo.src.src}
+                className={`absolute aspect-square rounded-full overflow-hidden border-4 border-support-color bg-light-bg ${photoPositions[index]}`}
               >
                 <Image
-                  src={photo.image}
+                  src={photo.src}
                   alt={photo.alt}
                   fill
                   className="object-cover object-center"
@@ -81,11 +55,11 @@ export default function Differentials() {
             className="w-full lg:max-w-143 flex flex-col items-start"
           >
             <h2 className="max-w-125 [text-wrap:balance]">
-              Nossos Diferenciais
+              {differentials.title}
             </h2>
 
             <div className="mt-10 flex flex-col gap-8 max-w-138">
-              {differentialsData.map((item) => (
+              {differentials.items.map((item) => (
                 <p
                   key={item.title}
                   className="texto-secao text-[18px] md:text-[20px]"
@@ -104,7 +78,7 @@ export default function Differentials() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Agendar Consulta
+                {differentials.button}
               </Button>
             </div>
           </motion.div>
