@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false,
   },
   output: 'export',
+  // Gera /privacy/index.html em vez de /privacy.html: funciona em qualquer hospedagem estática.
+  trailingSlash: true,
   images: {
     unoptimized: true,
     remotePatterns: [

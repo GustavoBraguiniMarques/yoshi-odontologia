@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { MapPin, PhoneCall, Clock } from 'lucide-react';
 import {
   clinic,
@@ -11,11 +12,12 @@ import {
   instagramUrl,
   mapsRouteUrl,
   mapsEmbedUrl,
+  croLine,
 } from '@/config/clinic';
 
 const legalLinks = [
-  { href: '#footer', label: 'Termos de Uso' },
-  { href: '#footer', label: 'Privacidade' },
+  { href: '/terms/', label: 'Termos de Uso' },
+  { href: '/privacy/', label: 'Privacidade' },
 ];
 
 export default function Footer() {
@@ -29,8 +31,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12">
           {/* Coluna 1: Logo, Localização e Mapa */}
           <div className="md:col-span-12 lg:col-span-6 flex flex-col items-start">
-            <a
-              href="#home"
+            <Link
+              href="/#home"
               className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
               aria-label={`${clinic.name} - Início`}
             >
@@ -40,7 +42,7 @@ export default function Footer() {
                 unoptimized
                 className="h-14 md:h-16 w-auto object-contain"
               />
-            </a>
+            </Link>
 
             {/* Localização */}
             <div className="mt-4 flex items-start gap-3">
@@ -172,19 +174,23 @@ export default function Footer() {
 
         {/* Linha inferior */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white-ink">
-          <p className="legenda-texto">
-            © {new Date().getFullYear()} {clinic.name}. Todos os direitos reservados.
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p className="legenda-texto">
+              © {new Date().getFullYear()} {clinic.name}. Todos os direitos reservados.
+            </p>
+            {/* Registro no CRO (clinic.cro): aparece quando estiver preenchido */}
+            {croLine && <p className="legenda-texto text-center md:text-left">{croLine}</p>}
+          </div>
 
           <div className="flex items-center gap-6">
             {legalLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="legenda-texto hover:text-primary transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

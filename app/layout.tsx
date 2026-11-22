@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Philosopher, Poppins, Lato } from 'next/font/google';
 import { clinic } from '@/config/clinic';
+import { siteUrl, allowIndexing, ogImage } from '@/lib/seo';
 import './globals.css';
 
 const philosopher = Philosopher({
@@ -25,21 +26,37 @@ const lato = Lato({
   display: 'swap',
 });
 
-// Title, description e redes sociais vêm de config/clinic.ts.
+const shareImage = {
+  url: ogImage.src,
+  width: ogImage.width,
+  height: ogImage.height,
+  alt: clinic.name,
+};
+
+// Title, description e redes sociais vêm de config/clinic.ts; as regras ficam em lib/seo.ts.
 export const metadata: Metadata = {
-  title: clinic.seo.title,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: clinic.seo.title,
+    // páginas internas: "Política de Privacidade | Nome da Clínica"
+    template: `%s | ${clinic.name}`,
+  },
   description: clinic.seo.description,
+  // Sem domínio final, ou em build na Vercel, o site é prévia: fica fora do Google.
+  robots: allowIndexing ? undefined : { index: false, follow: false },
   openGraph: {
     title: clinic.seo.title,
     description: clinic.seo.description,
     type: 'website',
     locale: 'pt_BR',
     siteName: clinic.name,
+    images: [shareImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: clinic.seo.title,
     description: clinic.seo.description,
+    images: [shareImage],
   },
 };
 

@@ -20,6 +20,23 @@ type PhoneNumber = {
 type Clinic = {
   name: string;
   /**
+   * Domínio final, com https:// e sem barra no fim. Ex.: 'https://www.clinica.com.br'
+   * Enquanto estiver vazio, o site é tratado como prévia e fica fora do Google.
+   */
+  site: string;
+  /**
+   * Registro no CRO: o Código de Ética Odontológica exige na divulgação o número da
+   * clínica e o nome e número do responsável técnico. Aparece no rodapé quando preenchido.
+   */
+  cro: {
+    /** Inscrição da clínica. Ex.: 'CRO-PR 1234' */
+    clinic: string;
+    /** Nome do responsável técnico. Ex.: 'Dr. Nome Sobrenome' */
+    technicalDirector: string;
+    /** Inscrição do responsável técnico. Ex.: 'CRO-PR 12345' */
+    technicalDirectorNumber: string;
+  };
+  /**
    * Logos em assets/images. Para trocar, substitua os arquivos mantendo o nome:
    * largura e altura são lidas do próprio arquivo.
    */
@@ -46,7 +63,15 @@ type Clinic = {
     zip: string;
   };
   /** Uma linha por faixa de dias, na ordem em que devem aparecer. */
-  hours: { days: string; time: string }[];
+  hours: {
+    days: string;
+    time: string;
+    /**
+     * O mesmo horário no formato que o Google entende (dias: Mo Tu We Th Fr Sa Su).
+     * Ex.: 'Mo-Fr 08:00-19:00'. Omita nos dias fechados.
+     */
+    schema?: string;
+  }[];
   seo: {
     /** Título da aba e do resultado no Google (ideal: até 60 caracteres). */
     title: string;
@@ -57,6 +82,12 @@ type Clinic = {
 
 export const clinic: Clinic = {
   name: 'Yoshi Odontologia',
+  site: '', // preencher na implementação final
+  cro: {
+    clinic: '', // preencher: obrigatório antes de publicar
+    technicalDirector: '',
+    technicalDirectorNumber: '',
+  },
   logo: {
     header: logoHeader,
     footer: logoFooter,
@@ -79,7 +110,7 @@ export const clinic: Clinic = {
     zip: '80430-210',
   },
   hours: [
-    { days: 'Segunda a sexta', time: '08:00 às 19:00' },
+    { days: 'Segunda a sexta', time: '08:00 às 19:00', schema: 'Mo-Fr 08:00-19:00' },
     { days: 'Sábado e domingo', time: 'Fechado' },
   ],
   seo: {
@@ -106,3 +137,14 @@ export const instagramUrl = clinic.instagram ? `https://www.instagram.com/${clin
 export const mapsRouteUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
 
 export const mapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
+const { cro } = clinic;
+
+/** Linha do CRO no rodapé (vazia se nada estiver preenchido). */
+export const croLine = [
+  cro.clinic && `${clinic.name}: ${cro.clinic}`,
+  cro.technicalDirector &&
+    `Responsável técnico: ${cro.technicalDirector}${cro.technicalDirectorNumber ? ` (${cro.technicalDirectorNumber})` : ''}`,
+]
+  .filter(Boolean)
+  .join(' · ');
