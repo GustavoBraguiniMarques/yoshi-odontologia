@@ -1,9 +1,6 @@
-'use client';
-
 import Image from 'next/image';
-import { motion } from 'motion/react';
-import Button from './Button';
-import { whatsappUrl } from '@/config/clinic';
+import Reveal from './Reveal';
+import WhatsAppButton from './WhatsAppButton';
 import { content } from '@/config/content';
 
 const { differentials } = content;
@@ -17,18 +14,14 @@ const photoPositions = [
 
 export default function Differentials() {
   return (
-    <section
-      id="differentials"
-      className="section light-section"
-    >
+    <section id="differentials" className="section light-section">
       <div className="section-container">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
-          {/* Fotos circulares dos Diferenciais */}
-          <motion.div
-            initial={{ opacity: 0, x: -32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
+          {/* Colagem de fotos circulares */}
+          <Reveal
+            x={-32}
+            y={0}
+            duration={1.1}
             className="relative w-full max-w-135 h-100 md:h-150 lg:h-151 min-[1320px]:-ml-18 shrink-0"
           >
             {differentials.photos.map((photo, index) => (
@@ -36,52 +29,28 @@ export default function Differentials() {
                 key={photo.src.src}
                 className={`absolute aspect-square rounded-full overflow-hidden border-4 border-support-color bg-light-bg ${photoPositions[index]}`}
               >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover object-center"
-                />
+                <Image src={photo.src} alt={photo.alt} fill className="object-cover object-center" />
               </div>
             ))}
-          </motion.div>
+          </Reveal>
 
-          {/* Coluna de Texto à direita */}
-          <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
-            className="w-full lg:max-w-143 flex flex-col items-start"
-          >
-            <h2 className="max-w-125 [text-wrap:balance]">
-              {differentials.title}
-            </h2>
+          {/* Coluna de texto */}
+          <Reveal x={32} y={0} duration={1.1} className="w-full lg:max-w-143 flex flex-col items-start">
+            <h2 className="max-w-125 [text-wrap:balance]">{differentials.title}</h2>
 
             <div className="mt-10 flex flex-col gap-8 max-w-138">
               {differentials.items.map((item) => (
-                <p
-                  key={item.title}
-                  className="section-text"
-                >
-                  <span className="font-bold">
-                    {item.title}{' '}
-                  </span>
+                <p key={item.title} className="section-text">
+                  <span className="font-bold">{item.title} </span>
                   {item.description}
                 </p>
               ))}
             </div>
 
             <div className="w-full flex justify-center lg:justify-start mt-10 lg:mt-13">
-              <Button
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {differentials.button}
-              </Button>
+              <WhatsAppButton>{differentials.button}</WhatsAppButton>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

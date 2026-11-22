@@ -1,74 +1,40 @@
-'use client';
-
 import Image from 'next/image';
-import { motion } from 'motion/react';
-import Button from './Button';
 import Header from './Header';
-import { whatsappUrl } from '@/config/clinic';
+import WhatsAppButton from './WhatsAppButton';
 import { content } from '@/config/content';
 
 const { hero } = content;
 
+// A entrada desta seção é animada em CSS (animate-rise, em globals.css), não com o motion:
+// assim o título e a foto aparecem assim que a página carrega, sem esperar o JavaScript.
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="section light-section p-0"
-    >
+    <section id="home" className="section light-section p-0">
       <Header />
 
-      {/* Hero container alinhado ao grid de 1140px */}
-      <div className="relative w-full overflow-hidden">        
-
-        {/* Conteúdo em grade de 2 colunas: centralizado no mobile e tablet, à esquerda no desktop */}
+      <div className="relative w-full overflow-hidden">
+        {/* Duas colunas: centralizado no celular e no tablet, à esquerda no desktop */}
         <div className="relative z-10 section-container py-15 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Coluna da esquerda */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
-            >
+            <h1 className="motion-safe:animate-rise [--rise-y:28px]">
               {hero.title.before}
               <span className="text-primary">{hero.title.highlight}</span>
               {hero.title.after}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-              className="section-text mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
-            >
+            <p className="section-text mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0 motion-safe:animate-rise [--rise-y:20px] [animation-delay:0.2s]">
               {hero.text}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
-              className="flex items-center justify-center lg:justify-start w-full lg:w-auto mt-6"
-            >
-              <Button
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                // cantos de 8px de propósito: o CTA principal se destaca dos outros botões
-                className="h-18 px-16 rounded-lg"
-              >
-                {hero.button}
-              </Button>
-            </motion.div>
+            <div className="flex items-center justify-center lg:justify-start w-full lg:w-auto mt-6 motion-safe:animate-rise [--rise-y:16px] [animation-delay:0.5s]">
+              {/* cantos de 8px de propósito: o CTA principal se destaca dos outros botões */}
+              <WhatsAppButton className="h-18 px-16 rounded-lg">{hero.button}</WhatsAppButton>
+            </div>
           </div>
 
-          {/* Coluna da direita com imagem em proporção 5:6 */}
+          {/* Coluna da direita: foto na proporção 6:7 */}
           <div className="lg:col-span-6 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
-              className="relative w-full max-w-90 md:max-w-120 aspect-[6/7]  shrink-0"
-            >
+            <div className="relative w-full max-w-90 md:max-w-120 aspect-[6/7] shrink-0 motion-safe:animate-rise-image [animation-delay:0.35s]">
               <Image
                 src={hero.image.src}
                 alt={hero.image.alt}
@@ -76,7 +42,7 @@ export default function Hero() {
                 priority
                 className="object-contain object-center"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

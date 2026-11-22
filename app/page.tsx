@@ -15,36 +15,38 @@ export const metadata: Metadata = clinic.site ? { alternates: { canonical: '/' }
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       {/* Dados estruturados para o Google (endereço, telefone, horário) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicJsonLd()).replace(/</g, '\\u003c') }}
       />
 
-      {/* 1. Hero (inclui o Header, compartilhando o mesmo background) */}
-      <Hero />
+      <main>
+        {/* 1. Hero (inclui o Header, compartilhando o mesmo fundo) */}
+        <Hero />
 
-      {/* 2. Serviços */}
-      <Services />
+        {/* 2. Serviços */}
+        <Services />
 
-      {/* 3. Diferenciais */}
-      <Differentials />
+        {/* 3. Diferenciais */}
+        <Differentials />
 
-      {/* 4. Sobre a clínica */}
-      <About />
+        {/* 4. Sobre a clínica */}
+        <About />
 
-      {/* 5. Depoimentos */}
-      <Testimonials />
+        {/* 5. Depoimentos */}
+        <Testimonials />
 
-      {/* 6. CTA final */}
-      <FinalCTA />
+        {/* 6. CTA final */}
+        <FinalCTA />
+      </main>
 
-      {/* 7. Footer */}
+      {/* 7. Rodapé (fora do <main>, para leitores de tela reconhecerem como rodapé) */}
       <Footer />
 
-      {/* Botão de WhatsApp Flutuante e Pulsante */}
+      {/* Botão flutuante do WhatsApp */}
       <FloatingWhatsApp />
-    </main>
+    </>
   );
 }

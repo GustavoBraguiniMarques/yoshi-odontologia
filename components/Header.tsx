@@ -50,32 +50,37 @@ export default function Header() {
         {/* Botão do menu no celular */}
         <div className="flex items-center gap-2 md:hidden">
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-soft-black-ink focus:outline-none"
-            aria-label="Abrir menu"
+            className="p-2 text-soft-black-ink rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-light-bg border-b border-support-color px-6 py-5 shadow-card">
-          <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-nav text-[16px] leading-title uppercase text-black-ink"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
+      {/* Menu do celular (fica no HTML e só aparece quando aberto) */}
+      <div
+        id="mobile-menu"
+        hidden={!mobileMenuOpen}
+        className="md:hidden bg-light-bg border-b border-support-color px-6 py-5 shadow-card"
+      >
+        <nav className="flex flex-col gap-4" aria-label="Menu">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="font-nav text-[16px] leading-title uppercase text-black-ink"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 }

@@ -63,6 +63,25 @@
   --leading-title: 1.1;
   --leading-subtitle: 1.2;
   --leading-text: 1.6;
+
+  /* Entrada da primeira dobra em CSS: começa assim que a página aparece, sem esperar o JavaScript.
+     A distância é ajustável por elemento com [--rise-y:20px]. */
+  --animate-rise: rise 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  --animate-rise-image: rise-image 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(var(--rise-y, 24px));
+    }
+  }
+
+  @keyframes rise-image {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+    }
+  }
 }
 
 /* ==========================================================================
@@ -182,6 +201,9 @@
   @apply mt-5 w-full rounded-card shadow-card flex flex-col items-start text-left p-4 bg-support-color/20 border border-support-color gap-3;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Rolagem suave nos links do menu, exceto para quem pediu menos movimento no sistema */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }

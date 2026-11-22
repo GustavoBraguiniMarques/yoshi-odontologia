@@ -15,5 +15,8 @@
 ## Convenções
 
 - Nomes de código (componentes, classes, ids, arquivos, chaves do config) em inglês; textos do site e comentários em português.
+- Animações: `components/Reveal.tsx` nas seções (surgem ao entrar na tela) e `animate-rise` em CSS na primeira dobra, para não depender do JavaScript. Ambas respeitam "reduzir movimento".
+- `'use client'` só onde há interação ou animação (Header, Testimonials, FloatingWhatsApp, Button, Reveal, MotionProvider); o resto é renderizado no build.
+- Estilos: tipografia, cores e cards em `app/globals.css`. Regras de seção usam `:where()`, então uma classe no próprio elemento sempre vence; não use `!important`.
 - Indexação e dados estruturados ficam em `lib/seo.ts`: o site só é indexável com `clinic.site` preenchido e build fora da Vercel.
 - Mudanças no projeto: um commit por assunto, com o build passando. Merge e push ficam com o usuário.

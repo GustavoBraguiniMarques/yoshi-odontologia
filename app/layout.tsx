@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Philosopher, Poppins, Lato } from 'next/font/google';
 import { clinic } from '@/config/clinic';
 import { siteUrl, allowIndexing, ogImage } from '@/lib/seo';
+import MotionProvider from '@/components/MotionProvider';
 import './globals.css';
 
 // Fontes do Google, servidas pelo próprio site. Para trocar uma fonte, mude o import e a chamada
@@ -73,7 +74,7 @@ export default function RootLayout({
       className={`${headingFont.variable} ${bodyFont.variable} ${navFont.variable}`}
     >
       <body className="font-body antialiased bg-light-bg text-black-ink selection:bg-primary/20 selection:text-black-ink">
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

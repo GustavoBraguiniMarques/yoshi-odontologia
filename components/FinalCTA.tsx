@@ -1,8 +1,5 @@
-'use client';
-
-import { motion } from 'motion/react';
-import Button from './Button';
-import { whatsappUrl } from '@/config/clinic';
+import Reveal from './Reveal';
+import WhatsAppButton from './WhatsAppButton';
 import { content } from '@/config/content';
 
 export default function FinalCTA() {
@@ -10,28 +7,11 @@ export default function FinalCTA() {
     <section className="section bg-(image:--light-gradient-up) py-0 md:py-30">
       {/* Card colado nas bordas no celular; a partir do tablet, recuado 24px do conteúdo das outras seções */}
       <div className="section-container px-0 md:px-14">
-        {/* Painel CTA */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98, y: 24 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
-          className="card cta-card"
-        >
-          <h2 className="text-black-ink max-w-208 [text-wrap:balance]">
-            {content.finalCta.title}
-          </h2>
+        <Reveal scale={0.98} className="card cta-card">
+          <h2 className="text-black-ink max-w-208 [text-wrap:balance]">{content.finalCta.title}</h2>
 
-          {/* Botão padrão */}
-          <Button
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 lg:mt-9"
-          >
-            {content.finalCta.button}
-          </Button>
-        </motion.div>
+          <WhatsAppButton className="mt-7 lg:mt-9">{content.finalCta.button}</WhatsAppButton>
+        </Reveal>
       </div>
     </section>
   );
