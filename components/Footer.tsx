@@ -3,7 +3,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { MapPin, PhoneCall, Clock } from 'lucide-react';
-import { CLINIC_INFO, WHATSAPP_URL } from './constants';
+import {
+  clinic,
+  fullAddress,
+  whatsappUrl,
+  phoneUrl,
+  instagramUrl,
+  mapsRouteUrl,
+  mapsEmbedUrl,
+} from '@/config/clinic';
 
 const legalLinks = [
   { href: '#footer', label: 'Termos de Uso' },
@@ -24,11 +32,11 @@ export default function Footer() {
             <a
               href="#home"
               className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
-              aria-label="VIG Odontologia - Início"
+              aria-label={`${clinic.name} - Início`}
             >
               <Image
                 src="/images/light-logo.png"
-                alt="Yoshi Odontologia"
+                alt={clinic.name}
                 width={240}
                 height={70}
                 unoptimized
@@ -40,21 +48,21 @@ export default function Footer() {
             <div className="mt-4 flex items-start gap-3">
               <MapPin className="w-5 h-5 text-support-color shrink-0 mt-1 stroke-[2.2]" />
               <p className="font-body text-[15px] leading-texto text-white-ink">
-                {CLINIC_INFO.fullAddress}
+                {fullAddress}
               </p>
             </div>
 
             {/* Bloco de incorporação de mapa do Google */}
             <div className="mt-4 w-full aspect-[2/1] min-h-53 rounded-xl overflow-hidden border border-primary shadow-inner relative group">
               <iframe
-                title="Localização Yoshi Odontologia Curitiba"
-                src="https://maps.google.com/maps?q=Rua+Brigadeiro+Franco,+441+-+Mercês,+Curitiba+-+PR,+80430-210&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                title={`Localização da ${clinic.name}`}
+                src={mapsEmbedUrl}
                 className="w-full h-[calc(100%+136px)] -mt-34 border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <a
-                href="https://maps.google.com/?q=Av.+Dr.+Alexandre+Rasgulaeff,+329+-+Jardim+Alvorada,+Maring%C3%A1+-+PR,+87010-050"
+                href={mapsRouteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-3 right-3 z-10 bg-black-ink/85 hover:bg-black-ink text-white-ink text-[11px] font-medium px-3 py-1 rounded-md shadow-md transition-colors backdrop-blur-xs flex items-center gap-1"
@@ -73,7 +81,7 @@ export default function Footer() {
             <div className="mt-5 flex flex-col gap-4">
               {/* WhatsApp */}
               <a
-                href={WHATSAPP_URL}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 group"
@@ -86,48 +94,52 @@ export default function Footer() {
                 <div className="flex flex-col">
                   <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">WhatsApp</span>
                   <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink hover:text-primary">
-                    {CLINIC_INFO.phoneDisplay}
+                    {clinic.whatsapp.display}
                   </span>
                 </div>
               </a>
 
-              {/* Instagram */}
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 group"
-              >
-                <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white-ink transition-colors">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">Instagram</span>
-                  <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink group-hover:text-primary">
-                    @vigodontologia
-                  </span>
-                </div>
-              </a>
+              {/* Instagram (some se clinic.instagram estiver vazio) */}
+              {instagramUrl && (
+                <a
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white-ink transition-colors">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">Instagram</span>
+                    <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink group-hover:text-primary">
+                      @{clinic.instagram}
+                    </span>
+                  </div>
+                </a>
+              )}
 
-              {/* Telefone */}
-              <a
-                href="tel:44999862487"
-                className="flex items-center gap-3 group"
-              >
-                <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white-ink transition-colors">
-                  <PhoneCall size={20} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">Telefone</span>
-                  <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink group-hover:text-primary">
-                    {CLINIC_INFO.phoneDisplay}
-                  </span>
-                </div>
-              </a>
+              {/* Telefone (some se clinic.phone for null) */}
+              {clinic.phone && phoneUrl && (
+                <a
+                  href={phoneUrl}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white-ink transition-colors">
+                    <PhoneCall size={20} />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">Telefone</span>
+                    <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink group-hover:text-primary">
+                      {clinic.phone.display}
+                    </span>
+                  </div>
+                </a>
+              )}
             </div>
           </div>
 
@@ -140,16 +152,18 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary shrink-0 mt-1">
                 <Clock className="w-5 h-5 stroke-[2.2]" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-body text-[17px] leading-subtitulo font-bold text-white-ink">
-                  Aberto 24 Horas
-                </span>
-                <span className="font-body text-[15px] leading-texto text-white-ink mt-1">
-                  Todos os Dias
-                </span>
-                <span className="text-xs text-star mt-2 flex items-center gap-1 font-medium">
-                  ● Plantão ativo ininterrupto
-                </span>
+              {/* Horários vêm de clinic.hours: uma linha por faixa de dias */}
+              <div className="flex flex-col gap-3">
+                {clinic.hours.map((item) => (
+                  <div key={item.days} className="flex flex-col">
+                    <span className="font-body text-[17px] leading-subtitulo font-bold text-white-ink">
+                      {item.days}
+                    </span>
+                    <span className="font-body text-[15px] leading-texto text-white-ink mt-1">
+                      {item.time}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -161,7 +175,7 @@ export default function Footer() {
         {/* Linha inferior */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white-ink">
           <p className="legenda-texto">
-            © 2026 VIG Odontologia. Todos os direitos.
+            © {new Date().getFullYear()} {clinic.name}. Todos os direitos reservados.
           </p>
 
           <div className="flex items-center gap-6">

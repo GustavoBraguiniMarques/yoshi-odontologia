@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import { clinic } from '@/config/clinic';
 
 export default function TeamDentist() {
   return (
@@ -27,7 +28,7 @@ export default function TeamDentist() {
               A Yoshi nasceu de um sonho simples e poderoso: entregar o que há de melhor na odontologia para as pessoas. 
             </p>
             <p>
-              Construída com trabalho, dedicação e amor genuíno pela profissão, hoje reunimos todas as especialistas em duas unidades no Paraná. 
+              Construída com trabalho, dedicação e amor genuíno pela profissão, hoje reunimos todas as especialidades em duas unidades no Paraná. 
             </p>
             <p>
               Somos guiados pela excelência em cada detalhe, cuidado com cada paciente e pelo propósito de transformar vidas através do sorriso. 
@@ -45,7 +46,7 @@ export default function TeamDentist() {
         >
           <Image
             src="/images/equipe.png"
-            alt="Equipe da VIG Odontologia reunida"
+            alt={`Equipe da ${clinic.name} reunida`}
             fill
             unoptimized
             priority

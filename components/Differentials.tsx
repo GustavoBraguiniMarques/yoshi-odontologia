@@ -4,34 +4,34 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
-import { WHATSAPP_URL } from './constants';
+import { clinic, whatsappUrl } from '@/config/clinic';
 
 const differentialPhotos = [
   {
     src: '/images/paciente.png',
-    alt: 'Paciente sorridente em atendimento na VIG Odontologia',
+    alt: `Paciente sorridente em atendimento na ${clinic.name}`,
     className: 'left-0 top-[23.1%] w-[52.8%] z-[1] shadow-md',
   },
   {
     src: '/images/consultorio.png',
-    alt: 'Consultório moderno da VIG Odontologia com tecnologia avançada',
+    alt: `Consultório moderno da ${clinic.name} com tecnologia avançada`,
     className: 'left-[39.4%] top-0 w-[60.6%] z-[2] shadow-lg',
   },
   {
     src: '/images/equipe.png',
-    alt: 'Equipe de cirurgiões dentistas da VIG Odontologia',
+    alt: `Equipe de cirurgiões-dentistas da ${clinic.name}`,
     className: 'left-[28.7%] top-[47.5%] w-[58.5%] z-[3] shadow-lg',
   },
 ];
 
 const differentialsData = [
   {
-    title: 'Urgência 24 horas:',
-    description: 'Atendimento a qualquer hora, inclusive à noite e nos fins de semana.',
+    title: 'Atendimento humanizado:',
+    description: 'Cuidado atento a cada paciente, do primeiro contato ao fim do tratamento.',
   },
   {
     title: 'Tudo num só lugar:',
-    description: 'implantes, próteses, canal, clareamento e estética na mesma clínica.',
+    description: 'Implantes, próteses, ortodontia, clareamento e estética na mesma clínica.',
   },
   {
     title: 'Tecnologia de ponta:',
@@ -100,7 +100,7 @@ export default function Differentials() {
 
             <div className="w-full flex justify-center lg:justify-start mt-10 lg:mt-13">
               <Button
-                href={WHATSAPP_URL}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >

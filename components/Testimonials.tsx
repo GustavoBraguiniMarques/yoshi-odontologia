@@ -18,7 +18,7 @@ const testimonialsSets: TestimonialItem[][] = [
     {
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
       name: 'Rodrigo Silva',
-      quote: 'Atendimento rápido no meio da noite para conter uma dor intensa de canal. Muito grato pelo cuidado.',
+      quote: 'Fui muito bem atendido do início ao fim. A equipe explicou cada etapa do tratamento com paciência.',
       todoBriefing: 'TODO: Retrato de busto, homem de barba, preto e branco.',
     },
     {
@@ -30,7 +30,7 @@ const testimonialsSets: TestimonialItem[][] = [
     {
       avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
       name: 'Beatriz Lima',
-      quote: 'Clínica moderna, profissionais atenciosos e ambiente impecável. Recomendo com segurança em Maringá.',
+      quote: 'Clínica moderna, profissionais atenciosos e ambiente impecável. Recomendo com segurança.',
       todoBriefing: 'TODO: Retrato de busto, pessoa com roupa clara, fundo azul-petróleo.',
     },
   ],
@@ -39,7 +39,7 @@ const testimonialsSets: TestimonialItem[][] = [
     {
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
       name: 'Fernanda Costa',
-      quote: 'Fui atendida na emergência durante a madrugada e a atenção de toda a equipe foi impecável.',
+      quote: 'Desde a recepção até o fim da consulta, a atenção de toda a equipe foi impecável.',
       todoBriefing: 'TODO: Depoimento provisório paciente 4.',
     },
     {

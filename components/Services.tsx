@@ -5,14 +5,14 @@ import { motion } from 'motion/react';
 import {
   Anchor,
   Crown,
-  Sparkles,
+  Smile,
   Sun,
-  Droplets,
-  RefreshCw,
+  ScanFace,
+  Sparkles,
   type LucideIcon,
 } from 'lucide-react';
 import Button from './Button';
-import { WHATSAPP_URL } from './constants';
+import { whatsappUrl } from '@/config/clinic';
 
 interface ServiceItem {
   icon: LucideIcon;
@@ -32,9 +32,9 @@ const servicesData: ServiceItem[] = [
     description: 'Substituição sob medida e de perfeito encaixe, gerando um visual 100% natural.',
   },
   {
-    icon: Sparkles,
-    title: 'Ortodentia',
-    description: 'Correção de cor e formato para deixar o seu sorriso o mais harmonioso possível.',
+    icon: Smile,
+    title: 'Ortodontia',
+    description: 'Aparelhos que alinham os dentes e corrigem a mordida, para um sorriso harmonioso.',
   },
   {
     icon: Sun,
@@ -42,14 +42,14 @@ const servicesData: ServiceItem[] = [
     description: 'Deixe seus dentes visivelmente mais brancos e iluminados com total segurança.',
   },
   {
-    icon: Droplets,
+    icon: ScanFace,
     title: 'Invisalign',
-    description: 'Higienização bucal completa, para deixar seus dentes e gengivas saudáveis.',
+    description: 'Alinhadores transparentes e removíveis que corrigem o sorriso com discrição.',
   },
   {
-    icon: RefreshCw,
+    icon: Sparkles,
     title: 'Faceta',
-    description: 'Reparo de dentes quebrados ou desgastados, devolvendo tada a força e estética.',
+    description: 'Lâminas finas e sob medida que corrigem cor, formato e imperfeições dos dentes.',
   },
 ];
 
@@ -113,7 +113,7 @@ export default function Services() {
           className="mt-14 flex justify-center"
         >
           <Button
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
           >

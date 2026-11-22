@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
 import Header from './Header';
-import { WHATSAPP_URL } from './constants';
+import { whatsappUrl } from '@/config/clinic';
 
 export default function Hero() {
   return (
@@ -46,7 +46,7 @@ export default function Hero() {
               className="flex items-center justify-center lg:justify-start w-full lg:w-auto mt-6"
             >
               <Button
-                href={WHATSAPP_URL}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-18 px-16 rounded-lg"

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Philosopher, Poppins, Lato } from 'next/font/google';
+import { clinic } from '@/config/clinic';
 import './globals.css';
 
 const philosopher = Philosopher({
@@ -24,33 +25,21 @@ const lato = Lato({
   display: 'swap',
 });
 
+// Title, description e redes sociais vêm de config/clinic.ts.
 export const metadata: Metadata = {
-  title: 'VIG Odontologia | Urgência 24 Horas & Implantes em Maringá - PR',
-  description:
-    'Clínica odontológica com pronto atendimento de urgência 24 horas e implantes em Maringá/PR. Excelência em saúde bucal, alívio imediato da dor e tecnologia avançada.',
-  keywords: [
-    'dentista 24 horas maringá',
-    'urgência odontológica maringá',
-    'implantes dentários maringá',
-    'clínica odontológica maringá',
-    'canal dente urgência maringá',
-    'clareamento dental maringá',
-    'vig odontologia',
-  ],
-  authors: [{ name: 'VIG Odontologia' }],
+  title: clinic.seo.title,
+  description: clinic.seo.description,
   openGraph: {
-    title: 'VIG Odontologia | Urgência 24h & Implantes em Maringá',
-    description:
-      'Pronto atendimento odontológico de urgência 24 horas e implantes com tecnologia de ponta em Maringá/PR.',
+    title: clinic.seo.title,
+    description: clinic.seo.description,
     type: 'website',
     locale: 'pt_BR',
-    siteName: 'VIG Odontologia',
+    siteName: clinic.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VIG Odontologia | Urgência 24h & Implantes em Maringá',
-    description:
-      'Atendimento de urgência 24 horas e implantes odontológicos em Maringá/PR.',
+    title: clinic.seo.title,
+    description: clinic.seo.description,
   },
 };
 

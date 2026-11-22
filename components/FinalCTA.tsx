@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import Button from './Button';
-import { WHATSAPP_URL } from './constants';
+import { whatsappUrl } from '@/config/clinic';
 
 export default function FinalCTA() {
   return (
@@ -24,7 +24,7 @@ export default function FinalCTA() {
 
           {/* Botão padrão */}
           <Button
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-7 lg:mt-9"

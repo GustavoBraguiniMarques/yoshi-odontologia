@@ -1,8 +1,0 @@
-{
-  "name": "Teste VIG-Odontologia 2.0 ",
-  "description": "Landing page oficial da VIG Odontologia em Maringá/PR. Atendimento odontológico de urgência 24 horas, implantes dentários e reabilitação oral.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}

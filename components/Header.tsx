@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { WHATSAPP_URL } from './constants';
+import { clinic } from '@/config/clinic';
 
 const navLinks = [
   { href: '#home', label: 'Início', active: true },
@@ -24,11 +24,11 @@ export default function Header() {
         <a
           href="#home"
           className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg justify-self-start"
-          aria-label="VIG Odontologia - Início"
+          aria-label={`${clinic.name} - Início`}
         >
           <Image
             src="/images/dark-logo.png"
-            alt="Yoshi Odontologia"
+            alt={clinic.name}
             width={240}
             height={60}
             priority
