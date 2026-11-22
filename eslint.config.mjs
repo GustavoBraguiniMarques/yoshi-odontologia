@@ -1,11 +1,6 @@
-import { defineConfig } from "eslint/config";
-import next from "eslint-config-next";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { defineConfig } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default defineConfig([{
-    extends: [...next],
-}]);
+// Regras do Next (inclui Core Web Vitals) + regras de TypeScript, como variáveis sem uso.
+export default defineConfig([...nextVitals, ...nextTypescript]);

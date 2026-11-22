@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
@@ -67,7 +66,6 @@ export default function Differentials() {
                   src={photo.image}
                   alt={photo.alt}
                   fill
-                  unoptimized
                   className="object-cover object-center"
                 />
               </div>
@@ -90,7 +88,7 @@ export default function Differentials() {
               {differentialsData.map((item) => (
                 <p
                   key={item.title}
-                  className="texto-secao text-[18px] md:text-[20px] font-400"
+                  className="texto-secao text-[18px] md:text-[20px]"
                 >
                   <span className="font-bold">
                     {item.title}{' '}

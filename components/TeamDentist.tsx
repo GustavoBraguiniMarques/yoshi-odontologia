@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { clinic } from '@/config/clinic';
@@ -49,7 +48,6 @@ export default function TeamDentist() {
             src={teamPhoto}
             alt={`Equipe da ${clinic.name} reunida`}
             fill
-            unoptimized
             className="object-cover object-center"
           />
         </motion.div>

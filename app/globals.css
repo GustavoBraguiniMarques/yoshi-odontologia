@@ -103,14 +103,6 @@
   @apply mx-auto max-w-site px-4 md:px-8;
 }
 
-/* @utility section-title {
-  @apply font-heading text-[36px] md:text-[44px] leading-titulo font-bold;
-} */
-
-@utility subtitulo-card {
-  @apply font-heading text-[24px] md:text-[28px] leading-subtitulo font-bold;
-}
-
 @utility texto-secao {
   @apply font-body text-[17px] text-soft-black-ink md:text-[20px] leading-texto font-normal;
 }
@@ -151,8 +143,4 @@
 
 html {
   scroll-behavior: smooth;
-}
- 
-body {
-  -webkit-font-smoothing: antialiased;
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
@@ -12,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="section light-section p-0 overflow-visible"
+      className="section light-section p-0"
     >
       <Header />
 
@@ -69,7 +68,6 @@ export default function Hero() {
                 src={heroImage}
                 alt="Modelo odontológico profissional demonstrando prótese e implante dentário"
                 fill
-                unoptimized
                 priority
                 className="object-contain object-center"
               />

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useSyncExternalStore, useRef } from 'react';
+import { useState, useSyncExternalStore, useRef } from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -9,55 +9,41 @@ interface TestimonialItem {
   avatar: string;
   name: string;
   quote: string;
-  todoBriefing: string;
 }
 
-const testimonialsSets: TestimonialItem[][] = [
-  // Página 1 (Padrão)
-  [
-    {
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-      name: 'Rodrigo Silva',
-      quote: 'Fui muito bem atendido do início ao fim. A equipe explicou cada etapa do tratamento com paciência.',
-      todoBriefing: 'TODO: Retrato de busto, homem de barba, preto e branco.',
-    },
-    {
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
-      name: 'Marcos Vinicius',
-      quote: 'Fiz meus implantes com a equipe e o resultado superou todas as expectativas. Recuperação tranquila.',
-      todoBriefing: 'TODO: Retrato de busto, homem sorrindo, camisa xadrez.',
-    },
-    {
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
-      name: 'Beatriz Lima',
-      quote: 'Clínica moderna, profissionais atenciosos e ambiente impecável. Recomendo com segurança.',
-      todoBriefing: 'TODO: Retrato de busto, pessoa com roupa clara, fundo azul-petróleo.',
-    },
-  ],
-  // Página 2
-  [
-    {
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
-      name: 'Fernanda Costa',
-      quote: 'Desde a recepção até o fim da consulta, a atenção de toda a equipe foi impecável.',
-      todoBriefing: 'TODO: Depoimento provisório paciente 4.',
-    },
-    {
-      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80',
-      name: 'Eduardo Silveira',
-      quote: 'Tratamento de prótese com ajuste perfeito. Consegui mastigar e sorrir novamente com confiança.',
-      todoBriefing: 'TODO: Depoimento provisório paciente 5.',
-    },
-    {
-      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80',
-      name: 'Camila Duarte',
-      quote: 'Clareamento seguro e sem dor. O resultado ficou muito natural e a equipe explica tudo com clareza.',
-      todoBriefing: 'TODO: Depoimento provisório paciente 6.',
-    },
-  ]
+const allTestimonials: TestimonialItem[] = [
+  {
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    name: 'Rodrigo Silva',
+    quote: 'Fui muito bem atendido do início ao fim. A equipe explicou cada etapa do tratamento com paciência.',
+  },
+  {
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    name: 'Marcos Vinicius',
+    quote: 'Fiz meus implantes com a equipe e o resultado superou todas as expectativas. Recuperação tranquila.',
+  },
+  {
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
+    name: 'Beatriz Lima',
+    quote: 'Clínica moderna, profissionais atenciosos e ambiente impecável. Recomendo com segurança.',
+  },
+  {
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    name: 'Fernanda Costa',
+    quote: 'Desde a recepção até o fim da consulta, a atenção de toda a equipe foi impecável.',
+  },
+  {
+    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80',
+    name: 'Eduardo Silveira',
+    quote: 'Tratamento de prótese com ajuste perfeito. Consegui mastigar e sorrir novamente com confiança.',
+  },
+  {
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80',
+    name: 'Camila Duarte',
+    quote: 'Clareamento seguro e sem dor. O resultado ficou muito natural e a equipe explica tudo com clareza.',
+  },
 ];
 
-const allTestimonials: TestimonialItem[] = testimonialsSets.flat();
 const starIndices = [0, 1, 2, 3, 4];
 
 function subscribe(callback: () => void) {
@@ -164,14 +150,9 @@ export default function Testimonials() {
     >
       <div className="section-container flex flex-col items-center">
         {/* H2 centralizado */}
-        <motion.h2  
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
-          className="text-center [text-wrap:balance]"
-        >
+        <h2 className="text-center [text-wrap:balance]">
           Depoimentos dos Pacientes
-        </motion.h2>
+        </h2>
 
         {/* Grade responsiva com suporte a touch / swipe e drag */}
         <div
@@ -217,12 +198,11 @@ export default function Testimonials() {
                     alt="Foto do paciente"
                     width={52}
                     height={52}
-                    unoptimized
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="selo-destaque text[16px] md:text-[18px]">
+                <span className="selo-destaque md:text-[18px]">
                   {item.name}
                 </span>
               </div>

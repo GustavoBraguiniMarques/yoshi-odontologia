@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Differentials from '@/components/Differentials';
@@ -16,7 +15,7 @@ export const metadata: Metadata = clinic.site ? { alternates: { canonical: '/' }
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-light-bg selection:bg-primary/20 selection:text-black-ink relative">
+    <main>
       {/* Dados estruturados para o Google (endereço, telefone, horário) */}
       <script
         type="application/ld+json"

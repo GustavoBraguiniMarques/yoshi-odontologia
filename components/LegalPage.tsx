@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from './Footer';
@@ -28,7 +27,6 @@ export default function LegalPage({ title, updatedAt, children }: LegalPageProps
                 src={clinic.logo.header}
                 alt={clinic.name}
                 priority
-                unoptimized
                 className="h-10 md:h-20 w-auto object-contain"
               />
             </Link>

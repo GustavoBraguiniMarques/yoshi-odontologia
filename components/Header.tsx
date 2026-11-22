@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { clinic } from '@/config/clinic';
@@ -30,7 +30,6 @@ export default function Header() {
             src={clinic.logo.header}
             alt={clinic.name}
             priority
-            unoptimized
             className="h-10 md:h-20 w-auto object-contain transition-transform group-hover:scale-[1.02]"
           />
         </a>
@@ -65,7 +64,7 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-light-bg border-b border-support-color px-6 py-5 shadow-card animate-fadeIn">
+        <div className="md:hidden bg-light-bg border-b border-support-color px-6 py-5 shadow-card">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'motion/react';
 import Button from './Button';
 import { whatsappUrl } from '@/config/clinic';
@@ -18,7 +17,6 @@ export default function FinalCTA() {
           transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
           className="card cta-card"
         >
-          {/* H2 em branco */}
           <h2 className="text-[32px] md:text-[42px] lg:text-[46px] text-black-ink max-w-208 [text-wrap:balance]">
             Deseja agendar a sua avaliação ou tirar alguma dúvida?
           </h2>

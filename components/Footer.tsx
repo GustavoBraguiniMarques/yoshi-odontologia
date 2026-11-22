@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, PhoneCall, Clock } from 'lucide-react';
@@ -39,7 +38,6 @@ export default function Footer() {
               <Image
                 src={clinic.logo.footer}
                 alt={clinic.name}
-                unoptimized
                 className="h-14 md:h-16 w-auto object-contain"
               />
             </Link>
