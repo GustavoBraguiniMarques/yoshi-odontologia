@@ -19,11 +19,11 @@ export default function Header() {
 
   return (
     <header className="relative w-full bg-transparent z-30">
-      <div className="section-container h-25 grid grid-cols-[auto_auto] items-center">
-        {/* 1. Logo à esquerda com proporção aumentada */}
+      {/* Logo à esquerda; menu (desktop) ou botão do menu (celular) à direita */}
+      <div className="section-container h-25 flex items-center justify-between">
         <a
           href="#home"
-          className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg justify-self-start"
+          className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
           aria-label={`${clinic.name} - Início`}
         >
           <Image
@@ -37,7 +37,7 @@ export default function Header() {
           />
         </a>
 
-        {/* 2. Links diretos com gap reduzido */}
+        {/* Menu do desktop */}
         <nav
           className="hidden md:flex items-center gap-5 lg:gap-14"
           aria-label="Navegação Principal"
@@ -53,10 +53,8 @@ export default function Header() {
           ))}
         </nav>
 
-        
-
-        {/* Mobile menu trigger */}
-        <div className="col-start-3 justify-self-end flex items-center gap-2 md:hidden">
+        {/* Botão do menu no celular */}
+        <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-support-color focus:outline-none"
