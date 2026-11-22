@@ -27,10 +27,8 @@ export default function Header() {
           aria-label={`${clinic.name} - Início`}
         >
           <Image
-            src="/images/dark-logo.png"
+            src={clinic.logo.header}
             alt={clinic.name}
-            width={240}
-            height={60}
             priority
             unoptimized
             className="h-10 md:h-20 w-auto object-contain transition-transform group-hover:scale-[1.02]"

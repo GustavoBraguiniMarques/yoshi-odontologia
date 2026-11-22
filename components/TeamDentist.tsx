@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { clinic } from '@/config/clinic';
+import teamPhoto from '@/assets/images/team.webp';
 
 export default function TeamDentist() {
   return (
@@ -45,11 +46,10 @@ export default function TeamDentist() {
           className="relative w-full aspect-[7/8] rounded-card overflow-hidden shadow-card border-2 border-support-color bg-light-bg"
         >
           <Image
-            src="/images/equipe.png"
+            src={teamPhoto}
             alt={`Equipe da ${clinic.name} reunida`}
             fill
             unoptimized
-            priority
             className="object-cover object-center"
           />
         </motion.div>

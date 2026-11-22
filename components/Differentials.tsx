@@ -5,20 +5,23 @@ import Image from 'next/image';
 import { motion } from 'motion/react';
 import Button from './Button';
 import { clinic, whatsappUrl } from '@/config/clinic';
+import patientPhoto from '@/assets/images/patient.webp';
+import officePhoto from '@/assets/images/office.webp';
+import teamPhoto from '@/assets/images/team.webp';
 
 const differentialPhotos = [
   {
-    src: '/images/paciente.png',
+    image: patientPhoto,
     alt: `Paciente sorridente em atendimento na ${clinic.name}`,
     className: 'left-0 top-[23.1%] w-[52.8%] z-[1] shadow-md',
   },
   {
-    src: '/images/consultorio.png',
+    image: officePhoto,
     alt: `Consultório moderno da ${clinic.name} com tecnologia avançada`,
     className: 'left-[39.4%] top-0 w-[60.6%] z-[2] shadow-lg',
   },
   {
-    src: '/images/equipe.png',
+    image: teamPhoto,
     alt: `Equipe de cirurgiões-dentistas da ${clinic.name}`,
     className: 'left-[28.7%] top-[47.5%] w-[58.5%] z-[3] shadow-lg',
   },
@@ -57,15 +60,14 @@ export default function Differentials() {
           >
             {differentialPhotos.map((photo) => (
               <div
-                key={photo.src}
+                key={photo.image.src}
                 className={`absolute aspect-square rounded-full overflow-hidden border-4 border-support-color bg-light-bg ${photo.className}`}
               >
                 <Image
-                  src={photo.src}
+                  src={photo.image}
                   alt={photo.alt}
                   fill
                   unoptimized
-                  priority
                   className="object-cover object-center"
                 />
               </div>

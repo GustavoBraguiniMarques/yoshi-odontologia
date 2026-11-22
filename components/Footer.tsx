@@ -35,10 +35,8 @@ export default function Footer() {
               aria-label={`${clinic.name} - Início`}
             >
               <Image
-                src="/images/light-logo.png"
+                src={clinic.logo.footer}
                 alt={clinic.name}
-                width={240}
-                height={70}
                 unoptimized
                 className="h-14 md:h-16 w-auto object-contain"
               />

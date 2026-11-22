@@ -6,6 +6,7 @@ import { motion } from 'motion/react';
 import Button from './Button';
 import Header from './Header';
 import { whatsappUrl } from '@/config/clinic';
+import heroImage from '@/assets/images/hero.webp';
 
 export default function Hero() {
   return (
@@ -65,7 +66,7 @@ export default function Hero() {
               className="relative w-full max-w-90 md:max-w-120 aspect-[6/7]  shrink-0"
             >
               <Image
-                src="/images/hero-image.png"
+                src={heroImage}
                 alt="Modelo odontológico profissional demonstrando prótese e implante dentário"
                 fill
                 unoptimized

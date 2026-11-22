@@ -6,6 +6,10 @@
  * a partir desses dados: não digite links à mão nos componentes.
  */
 
+import type { StaticImageData } from 'next/image';
+import logoHeader from '@/assets/images/logo-header.webp';
+import logoFooter from '@/assets/images/logo-footer.webp';
+
 type PhoneNumber = {
   /** DDI + DDD + número, só dígitos. Ex.: '5541987719197' */
   number: string;
@@ -15,6 +19,16 @@ type PhoneNumber = {
 
 type Clinic = {
   name: string;
+  /**
+   * Logos em assets/images. Para trocar, substitua os arquivos mantendo o nome:
+   * largura e altura são lidas do próprio arquivo.
+   */
+  logo: {
+    /** Versão para fundo claro (cabeçalho). */
+    header: StaticImageData;
+    /** Versão para fundo escuro (rodapé). */
+    footer: StaticImageData;
+  };
   whatsapp: PhoneNumber & {
     /** Mensagem que já vem escrita quando o paciente abre a conversa. */
     message: string;
@@ -43,6 +57,10 @@ type Clinic = {
 
 export const clinic: Clinic = {
   name: 'Yoshi Odontologia',
+  logo: {
+    header: logoHeader,
+    footer: logoFooter,
+  },
   whatsapp: {
     number: '5541987719197',
     display: '(41) 98771-9197',
