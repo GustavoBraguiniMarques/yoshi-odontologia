@@ -40,7 +40,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`font-nav text-[15px] lg:text-[16px] leading-titulo uppercase transition-colors whitespace-nowrap text-soft-black-ink hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
+              className="nav-link transition-colors whitespace-nowrap text-soft-black-ink hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               {link.label}
             </a>
@@ -68,9 +68,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`font-nav text-[16px] leading-titulo uppercase ${
-                  link.href === '#home' ? 'font-bold text-primary' : 'text-black-ink'
-                }`}
+                className="font-nav text-[16px] leading-title uppercase text-black-ink"
               >
                 {link.label}
               </a>

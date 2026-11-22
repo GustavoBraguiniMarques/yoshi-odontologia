@@ -114,7 +114,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="section light-section bg-[linear-gradient(180deg,var(--light-bg),var(--light-bg2))]"
+      className="section light-section bg-(image:--light-gradient-down)"
     >
       <div className="section-container flex flex-col items-center">
         {/* H2 centralizado */}
@@ -141,7 +141,7 @@ export default function Testimonials() {
                 delay: index * 0.08,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              className="card testimony-card"
+              className="card testimonial-card"
             >
               {/* 1. Estrelas */}
               <div className="flex items-center justify-center gap-0 mb-2">
@@ -154,7 +154,7 @@ export default function Testimonials() {
               </div>
 
               {/* 2. Depoimento / Citação */}
-              <blockquote className="font-body italic text-[15px] md:text-[17px] leading-texto font-normal text-soft-black-ink max-w-70 my-auto">
+              <blockquote className="font-body italic text-[15px] md:text-[17px] leading-text font-normal text-soft-black-ink max-w-70 my-auto">
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
 
@@ -172,7 +172,7 @@ export default function Testimonials() {
                     />
                   </div>
                 )}
-                <span className="selo-destaque md:text-[18px]">
+                <span className="highlight-text">
                   {item.name}
                 </span>
               </div>

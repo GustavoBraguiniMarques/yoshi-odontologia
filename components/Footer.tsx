@@ -23,7 +23,7 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer
-      id="footer"
+      id="contact"
       className="section dark-section pt-15 pb-8"
     >
       <div className="section-container">
@@ -46,7 +46,7 @@ export default function Footer() {
             {/* Localização */}
             <div className="mt-4 flex items-start gap-3">
               <MapPin className="w-5 h-5 text-support-color shrink-0 mt-1 stroke-[2.2]" />
-              <p className="font-body text-[15px] leading-texto text-white-ink">
+              <p className="caption-text">
                 {fullAddress}
               </p>
             </div>
@@ -74,9 +74,9 @@ export default function Footer() {
 
           {/* Coluna 2: Contatos */}
           <div className="md:col-span-6 lg:col-span-3 flex flex-col items-start lg:pl-4">
-            <h4 className="font-body text-[24px] leading-subtitulo font-semibold text-white-ink tracking-wide">
+            <h2 className="font-body text-[24px] leading-subtitle font-semibold text-white-ink tracking-wide">
               {content.footer.contactsTitle}
-            </h4>
+            </h2>
             <div className="mt-5 flex flex-col gap-4">
               {/* WhatsApp */}
               <a
@@ -92,7 +92,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">WhatsApp</span>
-                  <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink hover:text-primary">
+                  <span className="font-body text-[16px] leading-title font-semibold text-soft-white-ink hover:text-primary">
                     {clinic.whatsapp.display}
                   </span>
                 </div>
@@ -115,7 +115,7 @@ export default function Footer() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">Instagram</span>
-                    <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink group-hover:text-primary">
+                    <span className="font-body text-[16px] leading-title font-semibold text-soft-white-ink group-hover:text-primary">
                       @{clinic.instagram}
                     </span>
                   </div>
@@ -133,7 +133,7 @@ export default function Footer() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs text-soft-white-ink font-medium group-hover:text-primary">Telefone</span>
-                    <span className="font-body text-[16px] leading-titulo font-semibold text-soft-white-ink group-hover:text-primary">
+                    <span className="font-body text-[16px] leading-title font-semibold text-soft-white-ink group-hover:text-primary">
                       {clinic.phone.display}
                     </span>
                   </div>
@@ -144,10 +144,10 @@ export default function Footer() {
 
           {/* Coluna 3: Funcionamento */}
           <div className="md:col-span-6 lg:col-span-3 flex flex-col items-start lg:pl-2">
-            <h4 className="font-body text-[24px] leading-subtitulo font-semibold text-white-ink tracking-wide">
+            <h2 className="font-body text-[24px] leading-subtitle font-semibold text-white-ink tracking-wide">
               {content.footer.hoursTitle}
-            </h4>
-            <div className="card time-card">
+            </h2>
+            <div className="hours-card">
               <div className="w-9 h-9 rounded-full bg-support-color flex items-center justify-center text-primary shrink-0 mt-1">
                 <Clock className="w-5 h-5 stroke-[2.2]" />
               </div>
@@ -155,10 +155,10 @@ export default function Footer() {
               <div className="flex flex-col gap-3">
                 {clinic.hours.map((item) => (
                   <div key={item.days} className="flex flex-col">
-                    <span className="font-body text-[17px] leading-subtitulo font-bold text-white-ink">
+                    <span className="font-body text-[17px] leading-subtitle font-bold text-white-ink">
                       {item.days}
                     </span>
-                    <span className="font-body text-[15px] leading-texto text-white-ink mt-1">
+                    <span className="font-body text-[15px] leading-text text-white-ink mt-1">
                       {item.time}
                     </span>
                   </div>
@@ -174,11 +174,11 @@ export default function Footer() {
         {/* Linha inferior */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white-ink">
           <div className="flex flex-col items-center md:items-start gap-1">
-            <p className="legenda-texto">
+            <p className="caption-text">
               © {new Date().getFullYear()} {clinic.name}. Todos os direitos reservados.
             </p>
             {/* Registro no CRO (clinic.cro): aparece quando estiver preenchido */}
-            {croLine && <p className="legenda-texto text-center md:text-left">{croLine}</p>}
+            {croLine && <p className="caption-text text-center md:text-left">{croLine}</p>}
           </div>
 
           <div className="flex items-center gap-6">
@@ -186,7 +186,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="legenda-texto hover:text-primary transition-colors"
+                className="caption-text hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>

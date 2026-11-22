@@ -32,7 +32,7 @@ export default function LegalPage({ title, updatedAt, children }: LegalPageProps
             </Link>
             <Link
               href="/"
-              className="font-nav text-[15px] lg:text-[16px] leading-titulo uppercase text-soft-black-ink hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="nav-link text-soft-black-ink hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               ← Voltar ao site
             </Link>
@@ -42,11 +42,11 @@ export default function LegalPage({ title, updatedAt, children }: LegalPageProps
         <main className="pt-8 pb-15 md:pt-12 md:pb-30">
           <article className="section-container">
             <div className="max-w-3xl">
-              <h1 className="font-heading text-[36px] md:text-[44px] leading-titulo font-bold text-black-ink">
+              <h1 className="heading-lg text-black-ink">
                 {title}
               </h1>
-              <p className="mt-3 font-body text-[15px] leading-texto">Última atualização: {updatedAt}</p>
-              <div className="mt-10 flex flex-col gap-10 texto-card text-left">{children}</div>
+              <p className="mt-3 font-body text-[15px] leading-text">Última atualização: {updatedAt}</p>
+              <div className="mt-10 flex flex-col gap-10 card-text text-left">{children}</div>
             </div>
           </article>
         </main>
@@ -61,7 +61,7 @@ export default function LegalPage({ title, updatedAt, children }: LegalPageProps
 export function LegalSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="font-heading text-[24px] md:text-[28px] leading-subtitulo font-bold">{title}</h2>
+      <h2 className="heading-md">{title}</h2>
       <div className="mt-4 flex flex-col gap-4">{children}</div>
     </section>
   );

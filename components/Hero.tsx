@@ -38,7 +38,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-              className="texto-secao mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
+              className="section-text mt-4 max-w-80 md:max-w-120 lg:max-w-115 mx-auto lg:mx-0"
             >
               {hero.text}
             </motion.p>
@@ -53,6 +53,7 @@ export default function Hero() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                // cantos de 8px de propósito: o CTA principal se destaca dos outros botões
                 className="h-18 px-16 rounded-lg"
               >
                 {hero.button}

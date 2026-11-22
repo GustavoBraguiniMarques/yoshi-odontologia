@@ -72,7 +72,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${headingFont.variable} ${bodyFont.variable} ${navFont.variable}`}
     >
-      <body className="font-body antialiased bg-light-bg selection:bg-primary/20 selection:text-black-ink">
+      <body className="font-body antialiased bg-light-bg text-black-ink selection:bg-primary/20 selection:text-black-ink">
         {children}
       </body>
     </html>

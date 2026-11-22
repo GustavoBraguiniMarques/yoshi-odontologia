@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Cores da marca: para adaptar a uma clínica nova, troque os valores deste bloco
+   ========================================================================== */
 :root {
   /* --- Marca --- */
   --primary: #7D6132;
@@ -19,18 +22,22 @@
   --star: #FECE58;
   --whatsapp: #25D366;
 
-  /* --- Gradientes & Filtros --- */
-  --filter-hero: drop-shadow(0 24px 40px color-mix(in srgb, var(--primary) 30%, transparent));
+  /* --- Gradientes (montados com as cores acima) --- */
   --dark-gradient: linear-gradient(135deg, var(--dark-bg), var(--dark-bg2));
   --light-gradient: linear-gradient(135deg, var(--light-bg), var(--light-bg2));
+  /* Depoimentos (claro em cima) e CTA final (claro embaixo): juntos formam um gradiente contínuo */
+  --light-gradient-down: linear-gradient(180deg, var(--light-bg), var(--light-bg2));
+  --light-gradient-up: linear-gradient(0deg, var(--light-bg), var(--light-bg2));
 }
 
-
+/* Torna as cores e fontes acima utilizáveis como classes (bg-primary, text-black-ink, font-heading...) */
 @theme inline {
   --color-primary: var(--primary);
   --color-support-color: var(--support-color);
   --color-light-bg: var(--light-bg);
+  --color-light-bg2: var(--light-bg2);
   --color-dark-bg: var(--dark-bg);
+  --color-dark-bg2: var(--dark-bg2);
   --color-black-ink: var(--black-ink);
   --color-soft-black-ink: var(--soft-black-ink);
   --color-white-ink: var(--white-ink);
@@ -53,35 +60,83 @@
   /* Largura máxima das seções: 1140px de conteúdo + 32px de respiro de cada lado (gera max-w-site) */
   --container-site: 75.25rem;
 
-  --leading-titulo: 1.1;
-  --leading-subtitulo: 1.2;
-  --leading-texto: 1.6;
+  --leading-title: 1.1;
+  --leading-subtitle: 1.2;
+  --leading-text: 1.6;
 }
 
+/* ==========================================================================
+   Tipografia: a escala do site inteiro fica aqui
+   ========================================================================== */
+
+/* Títulos */
+@utility heading-xl {
+  /* h1 da primeira dobra */
+  @apply font-heading font-bold leading-title text-[44px] md:text-[56px];
+}
+
+@utility heading-lg {
+  /* títulos das seções (h2) */
+  @apply font-heading font-bold leading-title text-[36px] md:text-[44px];
+}
+
+@utility heading-md {
+  /* títulos dos cards (h3) */
+  @apply font-heading font-bold leading-subtitle text-[24px] md:text-[28px];
+}
+
+/* Textos */
+@utility section-text {
+  @apply font-body font-normal leading-text text-[17px] md:text-[20px] text-soft-black-ink;
+}
+
+@utility card-text {
+  @apply font-body font-normal leading-text text-[16px] md:text-[18px] text-soft-black-ink;
+}
+
+@utility caption-text {
+  /* textos pequenos do rodapé (fundo escuro) */
+  @apply font-body font-normal leading-text text-[15px] text-soft-white-ink;
+}
+
+@utility highlight-text {
+  /* nomes nos depoimentos */
+  @apply font-body font-medium leading-title text-[18px] text-primary;
+}
+
+@utility nav-link {
+  @apply font-nav leading-title uppercase text-[15px] lg:text-[16px];
+}
+
+/* ==========================================================================
+   Seções
+   As regras de título e parágrafo usam :where() para ter a menor especificidade
+   possível: qualquer classe colocada direto no elemento vence, sem !important.
+   ========================================================================== */
 @utility section {
   @apply relative w-full py-15 md:py-30;
 
-  & h1 {
-    @apply font-heading leading-titulo font-bold max-w-80 md:max-w-full !text-[44px] md:!text-[56px] ;
+  :where(&) h1 {
+    @apply heading-xl max-w-80 md:max-w-full;
   }
 
-  & h2 {
-    @apply font-heading text-[36px] md:text-[44px] leading-titulo font-bold;
+  :where(&) h2 {
+    @apply heading-lg;
   }
 
-  & h3 {
-    @apply font-heading text-[24px] md:text-[28px] leading-subtitulo font-bold;
+  :where(&) h3 {
+    @apply heading-md;
   }
 }
 
 @utility light-section {
   @apply bg-(image:--light-gradient);
 
-  & h2 {
+  :where(&) h2 {
     @apply text-black-ink;
   }
 
-  & p {
+  :where(&) p {
     @apply text-soft-black-ink;
   }
 }
@@ -89,11 +144,11 @@
 @utility dark-section {
   @apply bg-(image:--dark-gradient);
 
-  & h2 {
+  :where(&) h2 {
     @apply text-white-ink;
   }
-  
-  & p {
+
+  :where(&) p {
     @apply text-soft-white-ink;
   }
 }
@@ -103,33 +158,18 @@
   @apply mx-auto max-w-site px-4 md:px-8;
 }
 
-@utility texto-secao {
-  @apply font-body text-[17px] text-soft-black-ink md:text-[20px] leading-texto font-normal;
-}
-
-@utility texto-card {
-  @apply font-body text-[16px] md:text-[18px] leading-texto font-normal text-soft-black-ink;
-}
-
-@utility selo-destaque {
-  @apply font-body text-[18px] md:text-[20px] leading-titulo font-medium text-primary;
-}
-
-@utility legenda-texto {
-  @apply font-body text-[15px] leading-texto font-normal text-soft-white-ink;
-}
-
-
+/* ==========================================================================
+   Cards
+   ========================================================================== */
 @utility card {
   @apply w-full rounded-card shadow-card flex flex-col items-center text-center;
 }
 
-
-@utility service-card { 
+@utility service-card {
   @apply max-w-91 min-h-78 bg-light-bg border-2 border-support-color px-8 py-10;
 }
 
-@utility testimony-card {
+@utility testimonial-card {
   @apply max-w-90 min-h-80 bg-light-bg px-6 py-8 justify-between;
 }
 
@@ -137,8 +177,9 @@
   @apply min-h-70 lg:min-h-80 bg-support-color rounded-none md:rounded-card border-0 px-6 md:px-12 pt-14 pb-15 justify-center text-center;
 }
 
-@utility time-card {
-  @apply mt-5 p-4 bg-support-color/20 border border-support-color items-start gap-3;
+/* Card de horário do rodapé: não depende de .card, para o alinhamento à esquerda valer */
+@utility hours-card {
+  @apply mt-5 w-full rounded-card shadow-card flex flex-col items-start text-left p-4 bg-support-color/20 border border-support-color gap-3;
 }
 
 html {

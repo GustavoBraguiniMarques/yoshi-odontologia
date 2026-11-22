@@ -7,7 +7,7 @@ import { content } from '@/config/content';
 
 export default function FinalCTA() {
   return (
-    <section className="section bg-[linear-gradient(0deg,var(--light-bg),var(--light-bg2))] py-0! md:py-30!">
+    <section className="section bg-(image:--light-gradient-up) py-0 md:py-30">
       {/* Card colado nas bordas no celular; a partir do tablet, recuado 24px do conteúdo das outras seções */}
       <div className="section-container px-0 md:px-14">
         {/* Painel CTA */}
@@ -18,7 +18,7 @@ export default function FinalCTA() {
           transition={{ duration: 1.0, ease: [0.22, 0.61, 0.36, 1] }}
           className="card cta-card"
         >
-          <h2 className="text-[32px] md:text-[42px] lg:text-[46px] text-black-ink max-w-208 [text-wrap:balance]">
+          <h2 className="text-black-ink max-w-208 [text-wrap:balance]">
             {content.finalCta.title}
           </h2>
 

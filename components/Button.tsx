@@ -22,7 +22,7 @@ export default function Button({
       transition={{ duration: 0.35 }}
       href={href}
       className={cn(
-        'h-16 px-12 rounded-full bg-primary text-white-ink font-body font-medium text-[20px] leading-titulo flex items-center justify-center shadow-button hover:opacity-95 transition-all whitespace-nowrap',
+        'h-16 px-12 rounded-full bg-primary text-white-ink font-body font-medium text-[20px] leading-title flex items-center justify-center shadow-button hover:opacity-95 transition-all whitespace-nowrap',
         className
       )}
       {...props}

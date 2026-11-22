@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import Differentials from '@/components/Differentials';
 import Services from '@/components/Services';
-import TeamDentist from '@/components/TeamDentist';
+import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
@@ -31,8 +31,8 @@ export default function HomePage() {
       {/* 3. Diferenciais */}
       <Differentials />
 
-      {/* 4. Dentista (sobre a equipe) */}
-      <TeamDentist />
+      {/* 4. Sobre a clínica */}
+      <About />
 
       {/* 5. Depoimentos */}
       <Testimonials />

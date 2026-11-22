@@ -6,10 +6,10 @@ import { content } from '@/config/content';
 
 const { about } = content;
 
-export default function TeamDentist() {
+export default function About() {
   return (
     <section
-      id="dentist"
+      id="about"
       className="section dark-section"
     >
       <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -24,7 +24,7 @@ export default function TeamDentist() {
           <h2>
             {about.title}
           </h2>
-          <div className="flex flex-col gap-6 mt-4 texto-secao text-black-ink">
+          <div className="flex flex-col gap-6 mt-4 section-text">
             {about.paragraphs.map((paragraph, index) => (
               <p key={paragraph} className={index === 0 ? 'mt-6' : undefined}>
                 {paragraph}

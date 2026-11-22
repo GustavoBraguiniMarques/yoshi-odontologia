@@ -14,16 +14,16 @@ import teamPhoto from '@/assets/images/team.webp';
 
 export const content = {
   /**
-   * Menu do topo. O href precisa ser o id da seção (#home, #services, #diferenciais,
-   * #dentist, #testimonials, #footer). Os ids ficam nos componentes: não mude.
+   * Menu do topo, na ordem da página. O href precisa ser o id da seção (#home, #services,
+   * #differentials, #about, #testimonials, #contact). Os ids ficam nos componentes: não mude.
    */
   nav: [
     { href: '#home', label: 'Início' },
-    { href: '#diferenciais', label: 'Diferenciais' },
     { href: '#services', label: 'Tratamentos' },
-    { href: '#dentist', label: 'Sobre Nós' },
+    { href: '#differentials', label: 'Diferenciais' },
+    { href: '#about', label: 'Sobre Nós' },
     { href: '#testimonials', label: 'Depoimentos' },
-    { href: '#footer', label: 'Contato' },
+    { href: '#contact', label: 'Contato' },
   ],
 
   hero: {

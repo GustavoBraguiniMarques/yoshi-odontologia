@@ -18,7 +18,7 @@ const photoPositions = [
 export default function Differentials() {
   return (
     <section
-      id="diferenciais"
+      id="differentials"
       className="section light-section"
     >
       <div className="section-container">
@@ -62,7 +62,7 @@ export default function Differentials() {
               {differentials.items.map((item) => (
                 <p
                   key={item.title}
-                  className="texto-secao text-[18px] md:text-[20px]"
+                  className="section-text"
                 >
                   <span className="font-bold">
                     {item.title}{' '}
