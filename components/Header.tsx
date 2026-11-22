@@ -55,7 +55,7 @@ export default function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-support-color focus:outline-none"
+            className="p-2 text-soft-black-ink focus:outline-none"
             aria-label="Abrir menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

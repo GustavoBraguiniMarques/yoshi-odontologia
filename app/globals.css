@@ -50,6 +50,9 @@
 
   --radius-card: 24px;
 
+  /* Largura máxima das seções: 1140px de conteúdo + 32px de respiro de cada lado (gera max-w-site) */
+  --container-site: 75.25rem;
+
   --leading-titulo: 1.1;
   --leading-subtitulo: 1.2;
   --leading-texto: 1.6;
@@ -95,8 +98,9 @@
   }
 }
 
+/* Respiro lateral: 16px no celular e 32px a partir do tablet; acima de 1204px sobra margem automática */
 @utility section-container {
-  @apply max-w-285 mx-auto px-4 md:px-0;
+  @apply mx-auto max-w-site px-4 md:px-8;
 }
 
 /* @utility section-title {
@@ -130,7 +134,7 @@
 
 
 @utility service-card { 
-  @apply max-w-91 h-78 bg-light-bg border-2 border-support-color px-8 py-10;
+  @apply max-w-91 min-h-78 bg-light-bg border-2 border-support-color px-8 py-10;
 }
 
 @utility testimony-card {

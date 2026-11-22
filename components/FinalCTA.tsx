@@ -8,7 +8,8 @@ import { whatsappUrl } from '@/config/clinic';
 export default function FinalCTA() {
   return (
     <section className="section bg-[linear-gradient(0deg,var(--light-bg),var(--light-bg2))] py-0! md:py-30!">
-      <div className="section-container px-0 md:px-6">
+      {/* Card colado nas bordas no celular; a partir do tablet, recuado 24px do conteúdo das outras seções */}
+      <div className="section-container px-0 md:px-14">
         {/* Painel CTA */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98, y: 24 }}

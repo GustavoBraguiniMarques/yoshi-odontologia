@@ -97,7 +97,7 @@ export default function Services() {
               </h3>
 
               {/* 3. Descrição centralizada */}
-              <p className="mt-6 texto-card !text-soft-black-ink line-clamp-4">
+              <p className="mt-6 texto-card !text-soft-black-ink">
                 {service.description}
               </p>
             </motion.div>

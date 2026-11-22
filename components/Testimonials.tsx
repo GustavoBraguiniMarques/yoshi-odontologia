@@ -205,7 +205,7 @@ export default function Testimonials() {
               </div>
 
               {/* 2. Depoimento / Citação */}
-              <blockquote className="font-body italic text-[15px] md:text-[17px] leading-texto font-normal text-soft-black-ink max-w-70 my-auto line-clamp-4">
+              <blockquote className="font-body italic text-[15px] md:text-[17px] leading-texto font-normal text-soft-black-ink max-w-70 my-auto">
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
 
@@ -231,14 +231,15 @@ export default function Testimonials() {
         </div>
 
         {/* Paginação */}
-        <div className="mt-14 flex items-center justify-center gap-4">
+        {/* Setas com 44px de área de toque (a margem negativa mantém o espaço ocupado de antes) */}
+        <div className="mt-14 flex items-center justify-center gap-2">
           {/* Seta esquerda */}
           <motion.button
             whileHover={{ scale: 1.15, x: -3 }}
             whileTap={{ scale: 0.9 }}
             type="button"
             onClick={handlePrev}
-            className="w-11 flex items-center justify-center text-support-color hover:text-primary transition-colors focus:outline-none"
+            className="w-11 h-11 -my-3 flex items-center justify-center text-primary hover:text-black-ink transition-colors focus:outline-none"
             aria-label="Depoimentos anteriores"
           >
             <svg
@@ -254,8 +255,8 @@ export default function Testimonials() {
             </svg>
           </motion.button>
 
-          {/* Pontos de paginação */}
-          <div className="flex items-center gap-3 md:gap-4 max-w-full overflow-x-hidden py-1">
+          {/* Pontos de paginação: cada botão tem 24px de área de toque, com o ponto visível no centro */}
+          <div className="flex items-center max-w-full overflow-x-hidden">
             {Array.from({ length: total }).map((_, dotIndex) => {
               const isActive = dotIndex === safePageIndex;
               return (
@@ -266,12 +267,16 @@ export default function Testimonials() {
                   type="button"
                   onClick={() => setActivePageIndex(dotIndex)}
                   aria-label={`Ir para depoimento ${dotIndex + 1}`}
-                  className={`rounded-full transition-all duration-200 focus:outline-none shrink-0 ${
-                    isActive
-                      ? 'w-3 h-3 bg-primary scale-110'
-                      : 'w-2 h-2 bg-support-color hover:bg-dark-bg'
-                  }`}
-                />
+                  className="group w-6 h-6 flex items-center justify-center shrink-0 rounded-full focus:outline-none"
+                >
+                  <span
+                    className={`block rounded-full transition-all duration-200 ${
+                      isActive
+                        ? 'w-3 h-3 bg-primary scale-110'
+                        : 'w-2 h-2 bg-primary/80 group-hover:bg-dark-bg'
+                    }`}
+                  />
+                </motion.button>
               );
             })}
           </div>
@@ -282,7 +287,7 @@ export default function Testimonials() {
             whileTap={{ scale: 0.9 }}
             type="button"
             onClick={handleNext}
-            className="w-11 flex items-center justify-center text-support-color hover:text-primary transition-colors focus:outline-none"
+            className="w-11 h-11 -my-3 flex items-center justify-center text-primary hover:text-black-ink transition-colors focus:outline-none"
             aria-label="Próximos depoimentos"
           >
             <svg

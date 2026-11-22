@@ -49,14 +49,14 @@ export default function Differentials() {
       className="section light-section"
     >
       <div className="section-container">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Fotos circulares dos Diferenciais */}
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
-            className="relative w-full max-w-135 h-100 md:h-150 lg:h-151 lg:-ml-18 shrink-0"
+            className="relative w-full max-w-135 h-100 md:h-150 lg:h-151 min-[1320px]:-ml-18 shrink-0"
           >
             {differentialPhotos.map((photo) => (
               <div
