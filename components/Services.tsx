@@ -6,7 +6,7 @@ const { services } = content;
 
 export default function Services() {
   return (
-    <section id="services" className="section dark-section">
+    <section id="services" className="section light-section">
       <div className="section-container flex flex-col items-center">
         <Reveal as="h2" className="text-center [text-wrap:balance]">
           {services.title}

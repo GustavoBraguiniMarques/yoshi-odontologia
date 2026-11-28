@@ -6,7 +6,7 @@ const { about } = content;
 
 export default function About() {
   return (
-    <section id="about" className="section dark-section">
+    <section id="about" className="section light-section">
       <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         {/* Coluna esquerda: título e texto */}
         <Reveal className="flex flex-col text-center lg:text-left items-center lg:items-start">

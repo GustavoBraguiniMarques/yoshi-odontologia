@@ -14,7 +14,7 @@ const photoPositions = [
 
 export default function Differentials() {
   return (
-    <section id="differentials" className="section light-section">
+    <section id="differentials" className="section dark-section">
       <div className="section-container">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Colagem de fotos circulares */}

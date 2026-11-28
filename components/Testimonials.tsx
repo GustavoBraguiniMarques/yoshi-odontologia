@@ -73,7 +73,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="section light-section bg-(image:--light-gradient-down)">
+    <section id="testimonials" className="section dark-section">
       <div className="section-container flex flex-col items-center">
         <h2 className="text-center [text-wrap:balance]">{testimonials.title}</h2>
 

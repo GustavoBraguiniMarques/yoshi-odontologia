@@ -9,14 +9,14 @@ const { hero } = content;
 // assim o título e a foto aparecem assim que a página carrega, sem esperar o JavaScript.
 export default function Hero() {
   return (
-    <section id="home" className="section light-section p-0">
+    <section id="home" className="section dark-section p-0">
       <Header />
 
       <div className="relative w-full overflow-hidden">
         {/* Duas colunas: centralizado no celular e no tablet, à esquerda no desktop */}
         <div className="relative z-10 section-container py-15 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h1 className="motion-safe:animate-rise [--rise-y:28px]">
+            <h1 className="motion-safe:animate-rise [--rise-y:28px] text-white-ink">
               {hero.title.before}
               <span className="text-primary">{hero.title.highlight}</span>
               {hero.title.after}

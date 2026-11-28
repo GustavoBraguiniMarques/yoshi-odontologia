@@ -106,16 +106,16 @@
 
 /* Textos */
 @utility section-text {
-  @apply font-body font-normal leading-text text-[17px] md:text-[20px] text-soft-black-ink;
+  @apply font-body font-normal leading-text text-[17px] md:text-[20px];
 }
 
 @utility card-text {
-  @apply font-body font-normal leading-text text-[16px] md:text-[18px] text-soft-black-ink;
+  @apply font-body font-normal leading-text text-[16px] md:text-[18px];
 }
 
 @utility caption-text {
   /* textos pequenos do rodapé (fundo escuro) */
-  @apply font-body font-normal leading-text text-[15px] text-soft-white-ink;
+  @apply font-body font-normal leading-text text-[15px];
 }
 
 @utility highlight-text {
